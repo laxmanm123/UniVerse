@@ -1,4 +1,6 @@
 import "./sidebar.css"
+import {Link} from "react-router-dom";
+
 
 
 export default function Sidebar() {
@@ -12,7 +14,9 @@ export default function Sidebar() {
                     </li>
                     <li className="sidebarListItem">
                     <span class="material-icons">chat</span>
-                      <span className="sidebarListItemText">Chats</span>
+                      <span className="sidebarListItemText"></span>
+                      <Link to="/messenger">Chats</Link>
+
                     </li>
                     <li className="sidebarListItem">
                     <span class="material-icons">groups</span>

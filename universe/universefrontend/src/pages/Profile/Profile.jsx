@@ -23,7 +23,8 @@ export default function Profile() {
                     </div>
                 </div>
                 <div className="profileRightBottom">
-                    <Feed/>
+                    Hello this is a placeholder thing. i don't think we should put feed here. rather, let's have a section for images, personlity descriptions, etc.
+                   { /*<Feed/>*/ }
                     {/* NOTICE FOR WHEN CODING RIGHTBAR: go back and add {profile} as a parameter */}
                     <Rightbar profile/>  
                 </div>
