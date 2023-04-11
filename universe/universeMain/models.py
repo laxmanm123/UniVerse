@@ -17,24 +17,24 @@ class EventType(models.IntegerChoices):
 
 class Tag(models.Model):
     name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
     
 class Event(models.Model):
     #unique NOT NULL id created automatically -> primary key
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    author_username = User.first_name, User.last_name
     eventTitle = models.CharField(max_length=200)
     eventDate = models.DateTimeField()
     location = models.TextField()
     typeOfEvent = models.IntegerField(choices=EventType.choices)
     numberAttendees = models.IntegerField(default=0)
-    #attendees = models.ManyToManyField('Attendee', related_name='events_attending')
-    attendees = models.ManyToManyField('User', related_name='events_attending')
     tags = models.ManyToManyField('Tag', blank=True)
+    attendees = models.ManyToManyField(User, blank=True, related_name='attended_events')
 
     def __str__(self):
         return self.eventTitle
 
-class Attendee(models.Model):
-    name = models.ForeignKey(User, on_delete=models.CASCADE)
-    def __str__(self):
-        return self.name
+# class studentUser(models.Model):
+#     id = models.ForeignKey(User, on_delete=models.CASCADE)
+#     pronouns = 
