@@ -1,4 +1,6 @@
 import "./topbar.css"
+import {Link} from "react-router-dom";
+
 
 
 export default function Topbar() {
@@ -6,6 +8,7 @@ export default function Topbar() {
         <div className="topbarContainer">
             <div className="topbarLeft"> 
                 <span className="logo">UniVerse</span>
+                <Link to="/register"> Register </Link>
             </div>
 
             <div className="topbarCenter"> 
@@ -24,6 +27,7 @@ export default function Topbar() {
                     <div className="topbarIconItem" >
                     <span class="material-icons md-36">face</span>
                     <span className="topbarIconBadge" > 1</span>
+                    <Link to="/login"> Login </Link>
                 </div>
                 <div className="topbarIconNotification" >
                     <span class="material-icons md-36">notifications</span>

@@ -13,8 +13,8 @@ export default function Profile() {
             <div className="profileRight">
                 <div className="profileRightTop">
                     <div className="profileCover">
-                        <img className="profileCoverImg" src="" alt="" />
-                        <img className="profileUserImg" src="" alt="" />
+                        <img className="profileCoverImg" src="assets/header.jpg" alt="" />
+                        <img className="profileUserImage" src="assets/profilepic1.jpg" alt="" />
                     </div>
                     <div className="profileInfo">
                         <h4 className="profileInfoName">Name of User</h4>
@@ -25,8 +25,7 @@ export default function Profile() {
                 <div className="profileRightBottom">
                     Hello this is a placeholder thing. i don't think we should put feed here. rather, let's have a section for images, personlity descriptions, etc.
                    { /*<Feed/>*/ }
-                    {/* NOTICE FOR WHEN CODING RIGHTBAR: go back and add {profile} as a parameter */}
-                    <Rightbar profile/>  
+                    {/* NOTICE FOR WHEN CODING RIGHTBAR: go back and add {profile} as a parameter */}  
                 </div>
                 
             </div>
