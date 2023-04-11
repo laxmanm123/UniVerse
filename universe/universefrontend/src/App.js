@@ -1,7 +1,11 @@
 import React from "react"
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
+
 import Messenger from "./pages/Messenger/Messenger";
+//import login, register pages
+import Register from "./pages/register/Register";
+import Login from "./pages/login/Login";
 
 import { BrowserRouter as Router, Switch, 
   Route, Redirect,} from "react-router-dom";
@@ -31,3 +35,4 @@ function App() {
 }
   
 export default App;
+
