@@ -1,13 +1,17 @@
 import "./post.css";
+import {Link} from "react-router-dom";
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 
-export default function Post3() {
+
+export default function Post() {
   return (
     <div className="post">
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <img className="postProfileImg" src="assets/temppic3.jpg" alt="" />
-            <span className="postUsername">Alex Goldberg</span>
+            <img className="postProfileImg" src="assets/temppic1.jpg" alt="" />
+            <span className="postUsername">Ashna </span>
             <span className="postDate">Event Happening On: September 6</span>
 
           </div>
@@ -20,15 +24,26 @@ export default function Post3() {
           <img className="postImg" src="assets/profilepic3.jpg" alt="" /> */}
         </div>
         <div className="postDescription">
-          <span className="postDesc">Hi! I'm bored right now and I'm writing this as a test for this page. I'm actually having fun with this, though I suspect the actual clicking stuff is gonna be the world's biggest pain. Anyways. This is still cool! We've gotta replace this with some way to make an actual description. I hope all those tools on that video aren't depreciated/outdated. You better have read all of this. Or I will be upset </span>
+          <span className="postDesc">Hungry. </span>
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">
           <img className="likeIcon" src="assets/pic5.jpg" alt="" />
-            <span className="postLikeCounter">5/7 people are going</span>
+            <span className="postLikeCounter">2/5 people are going</span>
+            </div>
+          <div className="postBottom">
+            <span class="material-icons">brightness_5</span>
+            <span className="postLikeCounter">Afternoon</span>
           </div>
           <div className="postBottomRight">
-            <span className="postCommentText"> comments</span>
+            <span className="postCommentText"> Location:   </span>
+            <Link to={{ pathname: "https://fitzwillys.com/dining/" }} target="_blank">Fitzwilly's</Link>
+          </div>
+          <div>
+          <button onClick={()=> alert('You have signed up for the event. The creator has been notified and will get in contact with you.')} className="postButton">Sign Me Up!</button>
+          {/* <Stack direction="row" spacing={2}>
+          <Button variant="contained">Sign Me Up!</Button>
+          </Stack> */}
           </div>
         </div>
       </div>

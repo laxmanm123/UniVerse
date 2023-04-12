@@ -1,12 +1,17 @@
 import "./createpost.css"
 import Sidebar from "../../components/sidebar/Sidebar";
 import Topbar from "../../components/topbar/Topbar";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 
 import * as React from 'react';
 
 
 import {
-     Button, View, SafeAreaView,
+    View, SafeAreaView,
     Text, Alert
 } from 'react';
 
@@ -110,6 +115,31 @@ export default function CreatePost() {
         ))}
       </Menu>
     </div>
+
+    <Box
+      component="form"
+      sx={{
+        '& .MuiTextField-root': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <div>
+      <TextField
+          id="outlined-number"
+          label="Number of Attendees"
+          type="number"
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+
+      </div>
+      <div>
+      <TextField id="outlined-search" label="Link to Event" type="search" />
+      </div>
+
+    </Box>
 
         Description of event:
         {/* <input
