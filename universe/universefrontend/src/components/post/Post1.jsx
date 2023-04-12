@@ -1,14 +1,14 @@
 import "./post.css";
 
-export default function Post() {
+export default function Post1() {
   return (
     <div className="post">
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <img className="postProfileImg" src="assets/profilepic4.jpg" alt="" />
-            <span className="postUsername">Meghana V</span>
-            <span className="postDate">Event Happening On: November 8</span>
+            <img className="postProfileImg" src="assets/temppic1.jpg" alt="" />
+            <span className="postUsername">Cecilia Chan</span>
+            <span className="postDate">Event Happening On: March 10</span>
 
           </div>
           <div className="postTopRight">

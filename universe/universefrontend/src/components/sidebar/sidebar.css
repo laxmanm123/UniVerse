@@ -1,3 +1,15 @@
+.Home-button{
+  border: none;
+  padding: 7px;
+  border-radius: 5px;
+  background-color: lightskyblue;
+  font-weight: 500;
+  margin-right: 20px;
+  cursor: pointer;
+  color: white;
+
+}
+
 
 .sidebar{
     flex: 2;
