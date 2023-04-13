@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Home from "./pages/Home/Home";
+import Profile from "./pages/Profile/Profile";
+
+import Messenger from "./pages/Messenger/Messenger";
+import Register from "./pages/register/Register";
+import Login from "./pages/login/Login";
+import CreatePost from "./pages/CreatePost/CreatePost";
+
+
+import { BrowserRouter as Router, Switch, 
+  Route, Redirect,} from "react-router-dom";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* This is the alias of BrowserRouter i.e. Router */}
+      <Router>
+        <Switch>
+          {/* This route is for home component 
+          with exact path "/", in component props 
+          we passes the imported component*/}
+          <Route exact path="/" component={Home} />
+            
+          {/* This route is for about component 
+          with exact path "/about", in component 
+          props we passes the imported component*/}
+          <Route path="/profile" component={Profile} />
+          <Route path="/messenger" component={Messenger} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/createpost" component={CreatePost} />
+
+
+          <Redirect to="/" />
+        </Switch>
+      </Router>
+    </>
   );
 }
-
+  
 export default App;
+

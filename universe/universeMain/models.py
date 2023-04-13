@@ -36,5 +36,18 @@ class Event(models.Model):
         return self.eventTitle
 
 # class studentUser(models.Model):
-#     id = models.ForeignKey(User, on_delete=models.CASCADE)
-#     pronouns = 
+#     #id = models.ForeignKey(User, on_delete=models.CASCADE)
+#     id = models.AutoField(primary_key=True)
+#     name = models.CharField(max_length=100)
+#     username = models.CharField(max_length=100)
+#     pronouns = models.CharField(max_length=50)
+#     age = models.PositiveIntegerField()
+#     major = models.CharField(max_length=100)
+#     residential_cluster = models.CharField(max_length=100)
+#     bio = models.TextField()
+
+# class clubUser(models.Model):
+#     id = models.AutoField(primary_key=True)
+#     name = models.CharField(max_length=100)
+#     username = models.CharField(max_length=100)
+
