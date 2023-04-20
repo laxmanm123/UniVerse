@@ -1,6 +1,19 @@
+.Home-button{
+  border: none;
+  padding: 7px;
+  border-radius: 5px;
+  background-color: lightskyblue;
+  font-weight: 500;
+  margin-right: 20px;
+  cursor: pointer;
+  color: white;
+
+}
+
 
 .sidebar{
-    flex: 2;
+    /* flex: 1; */
+    width: 200px;
     height: calc(100vh - 50px);
     background-color: blanchedalmond;
     overflow-y: scroll;
@@ -10,7 +23,7 @@
 
 .sidebarWrapper {
     padding: 20px;
-    background-color: azure;
+    /* background-color: azure; */
 }
 
 ::-webkit-scrollbar {
@@ -26,7 +39,7 @@
 
 
 .sidebarList {
-    padding: 0;
+    padding: 10px;
     margin: 0;
     list-style: none;
   }
@@ -53,4 +66,8 @@
 .sidebarHr {
     margin: 20px 0;
   }
+
+.material-icons {
+  padding: 5px;
+}
   

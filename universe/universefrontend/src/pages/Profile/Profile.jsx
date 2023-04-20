@@ -3,6 +3,8 @@ import Topbar from "../../components/topbar/Topbar";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Feed from "../../components/feed/Feed";
 import Rightbar from "../../components/rightbar/Rightbar";
+import Post from "../../components/post/Post"
+
 
 export default function Profile() {
     return (
@@ -13,25 +15,35 @@ export default function Profile() {
             <div className="profileRight">
                 <div className="profileRightTop">
                     <div className="profileCover">
-                        <img className="profileCoverImg" src="assets/header.jpg" alt="" />
-                        <img className="profileUserImage" src="assets/profilepic1.jpg" alt="" />
+                    <img className="profileCoverImg" src="assets/header.jpg" alt="" />
+                        <img className="profileUserImage" src="assets/profilepic4.jpg" alt="" />
                     </div>
                     <div className="profileInfo">
                         <h4 className="profileInfoName">Name of User</h4>
-                        <span className="profileInfoDesc">Bio of User</span>
+                        <span className="profileInfoDesc">Age</span>
+                        <span className="profileInfoDesc">Major</span>
+                        <span className="profileInfoDesc">Year</span>
+                        <span className="profileInfoDesc">Gender & Pronouns</span>
                         {/* This is where we can add more info like res cluster, pronouns, major, age, etc */}
+                <span className="profileRightBottom">
+                    Description Placeholder: Hello! My name is Meghana, and I am a junior studying CS and English. I like reading, writing, watching movies, and more! :D 
+            
+                    </span>
+                    <div className="titleWrapper">
+                    <span className="profileInfoName">Events Created/Leading</span>
+                    </div>
                     </div>
                 </div>
-                <div className="profileRightBottom">
-                    Hello this is a placeholder thing. i don't think we should put feed here. rather, let's have a section for images, personlity descriptions, etc.
+
+                    <Post />
+
                    { /*<Feed/>*/ }
-                    {/* NOTICE FOR WHEN CODING RIGHTBAR: go back and add {profile} as a parameter */}  
+                    {/* NOTICE FOR WHEN CODING RIGHTBAR: go back and add {profile} as a parameter */}
                 </div>
                 
             </div>
             
             
-        </div>
         </>
     )
 }
