@@ -23,7 +23,7 @@
 .loginLogo{
     font-size: 50px;
     font-weight: 800;
-    color: darkcyan;
+    color: #1775ee;
 }
 
 .loginDesc {
@@ -56,7 +56,7 @@
     height: 50px;
     border-radius: 10px;
     border: none;
-    background-color: lightsalmon;
+    background-color: #1775ee;
     color: white;
     font-size: 20px;
     font-weight: 500;
@@ -74,7 +74,7 @@
     height: 50px;
     border-radius: 10px;
     border: none;
-    background-color: darkcyan;
+    background-color: #42b72a;
     color: white;
     font-size: 18px;
     font-weight: 500;

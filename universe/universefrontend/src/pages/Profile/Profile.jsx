@@ -15,8 +15,8 @@ export default function Profile() {
             <div className="profileRight">
                 <div className="profileRightTop">
                     <div className="profileCover">
-                    <img className="profileCoverImg" src="assets/header.jpg" alt="" />
-                        <img className="profileUserImage" src="assets/profilepic4.jpg" alt="" />
+                        <img className="profileCoverImg" src="" alt="" />
+                        <img className="profileUserImg" src="" alt="" />
                     </div>
                     <div className="profileInfo">
                         <h4 className="profileInfoName">Name of User</h4>
@@ -39,6 +39,7 @@ export default function Profile() {
 
                    { /*<Feed/>*/ }
                     {/* NOTICE FOR WHEN CODING RIGHTBAR: go back and add {profile} as a parameter */}
+                    <Rightbar profile/>  
                 </div>
                 
             </div>
