@@ -1,5 +1,5 @@
 import "./topbar.css"
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 import * as React from 'react';
 import Button from '@mui/material/Button';
@@ -15,6 +15,10 @@ import Stack from '@mui/material/Stack';
 
 
 export default function Topbar() {
+
+    const history = useHistory();
+
+
     return (
         <div className="topbarContainer">
             <div className="topbarLeft"> 
@@ -38,6 +42,7 @@ export default function Topbar() {
                     <div className="topbarIconItem" >
                     <span class="material-icons md-36">face</span>
                     <Link to="/register">Register</Link>
+                    
                     {/* <span className="topbarIconBadge" > 1</span> */}
                 </div>
                 {/* <div className="topbarIconNotification" >
@@ -49,7 +54,13 @@ export default function Topbar() {
                     <span className="topbarIconBadge" > 1</span>
                 </div> */}
                 </div>
-                <img src = "/assets/profilepic4.jpg" alt="" className="topbarImg" />
+                <span className="profilePageButton">
+                    <button onClick={()=> history.push('/profile')} className="Top-button">Profile 
+                    <img src = "/assets/profilepic4.jpg" alt="" className="topbarImg" />
+                    </button>
+                    
+                </span>
+                
             </div>
 
         </div>

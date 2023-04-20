@@ -11,7 +11,7 @@ export default function Rightbar() {
         <div className="rightbar">
         <div className="profileTab">
         <img className="rightProfileImg" src="assets/profilepic4.jpg" alt="" />
-        <button onClick={()=> history.push('/profile')} className="Right-button">Profile</button>
+        {/* <button onClick={()=> history.push('/profile')} className="Right-button">Profile</button> */}
         </div>
         </div>
     );

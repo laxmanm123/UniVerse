@@ -10,7 +10,7 @@
     align-self: center;
     border-radius: 40%;
     object-fit: cover;
-
+    padding: 20px;
     width: 250px;
     height: 250px;
 }

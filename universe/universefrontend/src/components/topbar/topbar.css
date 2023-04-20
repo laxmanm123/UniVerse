@@ -96,4 +96,18 @@
     object-fit: cover;
     cursor: pointer;
   }
+
+  .profilePageButton {
+    /* width: 32px; */
+    /* height: 32px; */
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    border-color: transparent;
+  }
+
+  .Top-button {
+    background-color: darksalmon;
+    border-color: transparent;
+  }
     
