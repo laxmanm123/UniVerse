@@ -12,50 +12,52 @@ export default function Sidebar() {
   
     return (
         <div className="sidebar">
-            <div className="sidebarWrapper">  </div>
-                <u1 className="sidebarList">
-                    <li className = "sidebarListItem">
-                    <span class="material-icons">rss_feed</span>
+            <div className="sidebarWrapper"> 
+              <u1 className="sidebarList">
+                <li className = "sidebarListItem">
+                  <span class="material-icons">rss_feed</span>
                     {<div className="sidebarListItemText">
                         <button onClick={()=> history.push('/Home')} className="Home-button">Home</button>
                     </div>}
 
                     {/* <Button variant="outlined">Feed</Button>  */}
                     {/* <span className="sidebarListItemText">Feed</span> */}
-                    </li>
-                    <li className="sidebarListItem">
-                    <span class="material-icons">chat</span>
-                    <button onClick={()=> history.push('/messenger')} className="Home-button">Chats</button>
+                </li>
+                <li className="sidebarListItem">
+                  <span class="material-icons">chat</span>
+                  <button onClick={()=> history.push('/messenger')} className="Home-button">Chats</button>
                     {/* <Button variant="outlined">Chat</Button> */}
                       {/* <span className="sidebarListItemText"></span>
                       <Link to="/messenger">Chats</Link> */}
 
-                    </li>
-                    <li className="sidebarListItem">
+                </li>
+                <li className="sidebarListItem">
                     <span class="material-icons">groups</span>
                     <button onClick={()=> history.push('/messenger')} className="Home-button">Groups</button>
                       {/* <span className="sidebarListItemText">Groups</span> */}
                       {/* <Button variant="outlined">Groups</Button> */}
-                    </li>
-                    <li className="sidebarListItem">
+                </li>
+                <li className="sidebarListItem">
                     <span class="material-icons">event</span>
                     <button onClick={()=> history.push('/messenger')} className="Home-button">Event List</button>
                     {/* <Button variant="outlined">Event List</Button> */}
                       {/* <span className="sidebarListItemText">Events</span> */}
-                    </li>
-                    <li className="sidebarListItem">
+                </li>
+                <li className="sidebarListItem">
                     <span class="material-icons">edit_square</span>
                 <button onClick={()=> history.push('/createpost')} className="Home-button">Create Post</button>
-                      </li>
-                </u1>
+                </li>
+              </u1>
+            </div>
+                
 
                 {/* <Stack spacing={2} direction="row"> */}
               {/* <Button variant="contained">Create Post</Button> */}
               {/* </Stack> */}
 
 
-        <hr className="sidebarHr" />
-        <ul className="sidebarFriendList"></ul>
+        {/* <hr className="sidebarHr" />
+        <ul className="sidebarFriendList"></ul> */}
       </div>
   );
 }

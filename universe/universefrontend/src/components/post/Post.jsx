@@ -5,13 +5,20 @@ import Stack from '@mui/material/Stack';
 
 
 export default function Post() {
+
+  function nameOfUser() {
+    let x = "meghana";
+    let y = "shira";
+    return  Math.random() * (10 - 1) + 1 > 5 ? x : y;
+  }
+
   return (
     <div className="post">
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
             <img className="postProfileImg" src="assets/profilepic4.jpg" alt="" />
-            <span className="postUsername">Meghana V</span>
+            <span className="postUsername">{nameOfUser()}</span>
             <span className="postDate">Event Happening On: November 8</span>
 
           </div>
