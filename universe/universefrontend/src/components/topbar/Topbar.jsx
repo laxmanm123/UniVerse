@@ -22,7 +22,8 @@ export default function Topbar() {
     return (
         <div className="topbarContainer">
             <div className="topbarLeft"> 
-                <span className="logo">UniVerse</span>
+                <span className="logo"><Link to="/login">UniVerse</Link></span>
+                
             </div>
 
             <div className="topbarCenter"> 
