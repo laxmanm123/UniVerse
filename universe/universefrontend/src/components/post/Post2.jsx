@@ -5,21 +5,14 @@ import Stack from '@mui/material/Stack';
 
 
 export default function Post() {
-
-  function nameOfUser() {
-    let x = "meghana";
-    let y = "shira";
-    return  Math.random() * (10 - 1) + 1 > 5 ? x : y;
-  }
-
   return (
     <div className="post">
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <img className="postProfileImg" src="assets/profilepic4.jpg" alt="" />
-            <span className="postUsername">{nameOfUser()}</span>
-            <span className="postDate">Event Happening On: November 8</span>
+            <img className="postProfileImg" src="assets/temppic2.jpg" alt="" />
+            <span className="postUsername">Shira </span>
+            <span className="postDate">Event Happening On: April 12</span>
 
           </div>
           <div className="postTopRight">
@@ -31,20 +24,20 @@ export default function Post() {
           <img className="postImg" src="assets/profilepic3.jpg" alt="" /> */}
         </div>
         <div className="postDescription">
-          <span className="postDesc">Hi! I want to watch Everything, Everywhere, All At Once, but none of my friends are interested. So if you're just like me, aka have boring friends, feel free to join me! I'd like to go some time during the day, preferrably the morning. We can discuss who's buying tickets/snacks, what times work, etc. </span>
+          <span className="postDesc">Going skating is a big hobby of mine, and the Mullins Center has the skating rink opened this week. Anyone can go skating for free. If you'd like to meet up and go skating in a small group, lmk! </span>
         </div>
         <div className="postBottom">
           <div className="postBottomLeft">
           <img className="likeIcon" src="assets/pic5.jpg" alt="" />
-            <span className="postLikeCounter">5/7 people are going</span>
+            <span className="postLikeCounter">1/3 people are going</span>
             </div>
           <div className="postBottom">
-            <span class="material-icons">sunny</span>
-            <span className="postLikeCounter">Morning</span>
+            <span class="material-icons">dark_mode</span>
+            <span className="postLikeCounter">Evening</span>
           </div>
           <div className="postBottomRight">
             <span className="postCommentText"> Location:   </span>
-            <Link to={{ pathname: "https://amherstcinema.org/" }} target="_blank">Amherst Movie Theater</Link>
+            <Link to={{ pathname: "http://www.mullinscenter.com/rink/public-skating" }} target="_blank">Mullins Center</Link>
           </div>
           <div>
           <button onClick={()=> alert('You have signed up for the event. The creator has been notified and will get in contact with you.')} className="postButton">Sign Me Up!</button>

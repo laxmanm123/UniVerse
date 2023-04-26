@@ -1,7 +1,7 @@
 .topbarContainer {
     height: 50px;
     width: 100%;
-    background-color: #188;
+    background-color: darksalmon;
     display: flex;
     align-items: center;
     position: sticky;
@@ -15,11 +15,11 @@
 }
 .topbarCenter {
     flex: 5;
-    background-color: darkseagreen;
+    background-color: darksalmon;
 }
 .topbarRight {
     flex: 4;
-    background-color: hotpink;
+    background-color: darksalmon;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -95,5 +95,19 @@
     border-radius: 50%;
     object-fit: cover;
     cursor: pointer;
+  }
+
+  .profilePageButton {
+    /* width: 32px; */
+    /* height: 32px; */
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    border-color: transparent;
+  }
+
+  .Top-button {
+    background-color: darksalmon;
+    border-color: transparent;
   }
     
