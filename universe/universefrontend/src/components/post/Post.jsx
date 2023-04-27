@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
 
-export default function Post() {
+export default function Post(props) {
 
   function nameOfUser() {
     let x = "meghana";
@@ -18,8 +18,8 @@ export default function Post() {
         <div className="postTop">
           <div className="postTopLeft">
             <img className="postProfileImg" src="assets/profilepic4.jpg" alt="" />
-            <span className="postUsername">{nameOfUser()}</span>
-            <span className="postDate">Event Happening On: November 8</span>
+            <span className="postUsername">{props.name}</span>
+            <span className="postDate">Event Happening On: {props.date}</span>
 
           </div>
           <div className="postTopRight">
@@ -36,7 +36,7 @@ export default function Post() {
         <div className="postBottom">
           <div className="postBottomLeft">
           <img className="likeIcon" src="assets/pic5.jpg" alt="" />
-            <span className="postLikeCounter">5/7 people are going</span>
+            <span className="postLikeCounter">{props.attending}/{props.max} people are going</span>
             </div>
           <div className="postBottom">
             <span class="material-icons">sunny</span>

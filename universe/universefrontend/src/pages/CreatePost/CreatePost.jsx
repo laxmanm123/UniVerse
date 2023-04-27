@@ -3,11 +3,20 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Topbar from "../../components/topbar/Topbar";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import {data} from "../../components/feed/Feed.jsx"
 
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
 import * as React from 'react';
+import {useState} from 'react';
+import { useHistory } from "react-router-dom";
+
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+
+
 
 
 import {
@@ -31,7 +40,12 @@ const options = [
 
 
 
-export default function CreatePost() {
+export default function CreatePost(props) {
+  const [name, setName] = useState("");
+  const [date, setDate] = useState("");
+  const [attending, setAttending] = useState(0);
+  const [max, setMax] = useState(0);
+
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [selectedIndex, setSelectedIndex] = React.useState(1);
 
@@ -54,7 +68,37 @@ export default function CreatePost() {
       const handleClose = () => {
         setAnchorEl(null);
       };
+
+      // const [data, setData] = useState([]);
+
+      const history = useHistory();
+
+      
+        const handleClick = () => {
+          const newData = { n: "Meghana", d: eventName, a: eventLocation, m: "5" };
+          // setData([...data, newData]);
+          alert("Event has been created");
+          data.push(newData);
+
+          // for (let i = 0; i < data.length; i++) {
+          // alert(data[i].n);
+          // }
+          history.push('/');
+
+        };      
+
+        const [eventName, setEventName] = useState('');
+        const [eventLocation, setEventLocation] = useState('');      
+      
     
+        const handleEventNameChange = (event) => {
+          setEventName(event.target.value);
+        }
+
+        const handleEventLocationChange = (event) => {
+          setEventLocation(event.target.value);
+        }
+      
 
   return (
     <div className="eventall">
@@ -66,17 +110,28 @@ export default function CreatePost() {
           <input
             placeholder="Name of Event"
             className="enameInput"
+            onChange={handleEventNameChange}
           />
           Enter location of event:
         <input
             placeholder="Location"
             className="enameInput"
+            onChange={handleEventLocationChange}
+
           />
         <div>
+        <div>
+        Enter date of event:
+        </div>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <DatePicker />
+    </LocalizationProvider>
+
+
         <List
         component="nav"
         aria-label="Device settings"
-        sx={{ bgcolor: 'background.paper' }}
+        sx={{ bgcolor: "peachpuff" }}
       >
         <ListItem
           button
@@ -155,7 +210,9 @@ export default function CreatePost() {
 
          <hr className="shareHr"/>
             {/* <button className="shareButton">Share</button> */}
-            <button onClick={()=> alert('Event has been created')} className="shareButton">Share</button>
+            <button onClick={handleClick} className="shareButton">
+      Share
+    </button>
 
 
             {/* <Stack direction="row" alignItems="center" spacing={2}>
