@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
-
 import Messenger from "./pages/Messenger/Messenger";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
@@ -9,7 +8,7 @@ import CreatePost from "./pages/CreatePost/CreatePost";
 
 
 import { BrowserRouter as Router, Switch, 
-  Route, Redirect,} from "react-router-dom";
+  Route, Redirect} from "react-router-dom";
 
 
 function App() {
@@ -28,11 +27,6 @@ function App() {
           props we passes the imported component*/}
           <Route path="/profile" component={Profile} />
           <Route path="/messenger" component={Messenger} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/createpost" component={CreatePost} />
-
-
           <Redirect to="/" />
         </Switch>
       </Router>
