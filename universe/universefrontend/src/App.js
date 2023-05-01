@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import Home from "./pages/Home/Home";
 import Profile from "./pages/Profile/Profile";
 
@@ -6,15 +6,29 @@ import Messenger from "./pages/Messenger/Messenger";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
 import CreatePost from "./pages/CreatePost/CreatePost";
+import {getEvents} from "./api";
 
 
 import { BrowserRouter as Router, Switch, 
   Route, Redirect,} from "react-router-dom";
 
-
 function App() {
+
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const events = await getEvents();
+      setEvents(events)
+      console.log(events);
+    };
+    fetchEvents();
+  }, []);
+
   return (
     <>
+
+    <h1> { events.map(event => <h2 key = {event.id}>{event.eventTitle}</h2>)} </h1>
       {/* This is the alias of BrowserRouter i.e. Router */}
       <Router>
         <Switch>

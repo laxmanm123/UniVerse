@@ -17,5 +17,10 @@ router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    path('', views.home, name='universeMain-home'), #empty string since it is the home page
+    path('about/', views.about, name='universeMain-about'), #empty string since it is the home page
+    path('events/', views.get_events),
+    path('events/<int:id>/', views.delete_event, name='delete'),
+
 ]

@@ -37,17 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
     'rest_framework',
-    'universeMain'
-=======
     'universeMain',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.google'
->>>>>>> 45d3a4a1d9714ffc198eb4f67c983344ba1ec95f
+    'allauth.socialaccount.providers.google',
+    'corsheaders'
 ]
 
 SITE_ID = 1
@@ -60,7 +57,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
+
+REST_FRAMEWORK = {'DEFAULT_PERMISSION_CLASS': 
+    ['rest_framework.permission.AllowAny']}
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 ROOT_URLCONF = 'universe.urls'
 
