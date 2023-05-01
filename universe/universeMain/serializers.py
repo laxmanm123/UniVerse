@@ -12,5 +12,4 @@ class EventSerializer(serializers.HyperlinkedModelSerializer):
     #user = serializers.PrimaryKeyRelatedField(read_only=True)
     class Meta:
         model = Event
-        fields = ('id', 'eventTitle', 'eventDate', 'location', 'typeOfEvent')
-        
+        fields = ('author', 'id', 'eventTitle', 'eventDate', 'location', 'typeOfEvent')
