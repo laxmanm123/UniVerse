@@ -54,6 +54,8 @@ export default function CreatePost(props) {
     const open = Boolean(anchorEl);
     const handleClickListItem = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
+        setSelectedIndex(event.currentTarget);
+
       };
       
   
@@ -72,10 +74,9 @@ export default function CreatePost(props) {
       // const [data, setData] = useState([]);
 
       const history = useHistory();
-
       
         const handleClick = () => {
-          const newData = { n: "Meghana", d: eventName, a: eventLocation, m: "5" };
+          const newData = {d: String(selectedDate), t: String(selectedIndex), n: eventName, l: eventLocation, a:"1", m: "5" };
           // setData([...data, newData]);
           alert("Event has been created");
           data.push(newData);
@@ -88,7 +89,14 @@ export default function CreatePost(props) {
         };      
 
         const [eventName, setEventName] = useState('');
-        const [eventLocation, setEventLocation] = useState('');      
+        const [eventLocation, setEventLocation] = useState('');
+        const [selectedDate, setSelectedDate] = useState('');
+        const [eventTime, setEventTime] = useState('');      
+        const [eventAttending, setEventAttending] = useState('');
+        const [eventMax, setEventMax] = useState('');      
+        const [eventDesc, setEventDesc] = useState('');      
+     
+      
       
     
         const handleEventNameChange = (event) => {
@@ -98,6 +106,16 @@ export default function CreatePost(props) {
         const handleEventLocationChange = (event) => {
           setEventLocation(event.target.value);
         }
+
+        const handleDateChange = (date) => {
+          setSelectedDate(date);
+        };
+            
+
+        const handleEventDescChange = (event) => {
+          setEventDesc(event.target.value);
+        }
+
       
 
   return (
@@ -124,7 +142,7 @@ export default function CreatePost(props) {
         Enter date of event:
         </div>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker />
+      <DatePicker value={selectedDate} onChange = {(newValue) => {setSelectedDate(newValue)}} />
     </LocalizationProvider>
 
 

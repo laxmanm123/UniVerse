@@ -40,11 +40,11 @@ export default function Post(props) {
             </div>
           <div className="postBottom">
             <span class="material-icons">sunny</span>
-            <span className="postLikeCounter">Morning</span>
+            <span className="postLikeCounter">{props.time}</span>
           </div>
           <div className="postBottomRight">
-            <span className="postCommentText"> Location:   </span>
-            <Link to={{ pathname: "https://amherstcinema.org/" }} target="_blank">Amherst Movie Theater</Link>
+            <span className="postCommentText"> Location:   {props.location} </span>
+            {/* <Link to={{ pathname: "https://amherstcinema.org/" }} target="_blank">Amherst Movie Theater</Link> */}
           </div>
           <div>
           <button onClick={()=> alert('You have signed up for the event. The creator has been notified and will get in contact with you.')} className="postButton">Sign Me Up!</button>
