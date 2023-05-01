@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
 
-export default function Post() {
+export default function Post(props) {
 
   function nameOfUser() {
     let x = "meghana";
@@ -18,8 +18,8 @@ export default function Post() {
         <div className="postTop">
           <div className="postTopLeft">
             <img className="postProfileImg" src="assets/profilepic4.jpg" alt="" />
-            <span className="postUsername">{nameOfUser()}</span>
-            <span className="postDate">Event Happening On: November 8</span>
+            <span className="postUsername">{props.name}</span>
+            <span className="postDate">Event Happening On: {props.date}</span>
 
           </div>
           <div className="postTopRight">
@@ -36,15 +36,15 @@ export default function Post() {
         <div className="postBottom">
           <div className="postBottomLeft">
           <img className="likeIcon" src="assets/pic5.jpg" alt="" />
-            <span className="postLikeCounter">5/7 people are going</span>
+            <span className="postLikeCounter">{props.attending}/{props.max} people are going</span>
             </div>
           <div className="postBottom">
             <span class="material-icons">sunny</span>
-            <span className="postLikeCounter">Morning</span>
+            <span className="postLikeCounter">{props.time}</span>
           </div>
           <div className="postBottomRight">
-            <span className="postCommentText"> Location:   </span>
-            <Link to={{ pathname: "https://amherstcinema.org/" }} target="_blank">Amherst Movie Theater</Link>
+            <span className="postCommentText"> Location:   {props.location} </span>
+            {/* <Link to={{ pathname: "https://amherstcinema.org/" }} target="_blank">Amherst Movie Theater</Link> */}
           </div>
           <div>
           <button onClick={()=> alert('You have signed up for the event. The creator has been notified and will get in contact with you.')} className="postButton">Sign Me Up!</button>
