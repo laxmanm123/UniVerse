@@ -6,7 +6,7 @@ import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
 import CreatePost from "./pages/CreatePost/CreatePost";
 import {getEvents} from "./api";
-
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 import { BrowserRouter as Router, Switch, 
   Route, Redirect} from "react-router-dom";
@@ -29,6 +29,7 @@ function App() {
 
     <h1> { events.map(event => <h2 key = {event.id}>{event.eventTitle}</h2>)} </h1>
       {/* This is the alias of BrowserRouter i.e. Router */}
+      <GoogleOAuthProvider clientId="805040466500-ive5e8oeebvngubg54v1gatfg10ch803.apps.googleusercontent.com">
       <Router>
         <Switch>
           {/* This route is for home component 
@@ -41,9 +42,12 @@ function App() {
           props we passes the imported component*/}
           <Route path="/profile" component={Profile} />
           <Route path="/messenger" component={Messenger} />
-          <Redirect to="/" />
+
+          <Route path="/login" component={Login}/>
+          <Redirect to="/profile" />
         </Switch>
       </Router>
+      </GoogleOAuthProvider>
     </>
   );
 }
