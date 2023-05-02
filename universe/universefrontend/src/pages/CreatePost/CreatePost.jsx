@@ -16,7 +16,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
-
+import {createEvent} from '../../api'
 
 
 import {
@@ -45,6 +45,8 @@ export default function CreatePost(props) {
   const [date, setDate] = useState("");
   const [attending, setAttending] = useState(0);
   const [max, setMax] = useState(0);
+  const [data, setData] = useState('');
+
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [selectedIndex, setSelectedIndex] = React.useState(1);
@@ -76,11 +78,12 @@ export default function CreatePost(props) {
       const history = useHistory();
       
         const handleClick = () => {
-          const newData = {d: String(selectedDate), t: String(selectedIndex), n: eventName, l: eventLocation, a:"1", m: "5" };
+          const newData = {title: eventName, date: String(selectedDate), loc: eventLocation, maxAttendees: 5 };
           // setData([...data, newData]);
-          alert("Event has been created");
-          data.push(newData);
-
+          // data.push(newData);
+          createEvent(newData).then(res => {
+            setData(res.data);
+          }).catch(err => console.log(console.err));
           // for (let i = 0; i < data.length; i++) {
           // alert(data[i].n);
           // }

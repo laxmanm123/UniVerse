@@ -15,13 +15,17 @@ export const getEvents = async() => {
   return data;
 }
 
-export const createEvent = async (auth, title, date, loc, type) => {
-    let res = await api.post('/', {
-          author: auth,
-          eventTitle: title,
-          eventDate: date,
-          location: loc,
-          typeOfEvent: type
+export const createEvent = async (obj) => {
+    let res = await api.post('events/', {
+          //author: obj.auth,
+          eventTitle: obj.title,
+          eventDate: obj.date,
+          eventTime: 'noon',
+          maxAttendees: obj.maxAttendees,
+          description: "obj.d",
+          attendees: '',
+          location: obj.loc,
+          typeOfEvent: 0
         })
         console.log(res)
       }
