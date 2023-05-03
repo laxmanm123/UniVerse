@@ -13,21 +13,21 @@ import { BrowserRouter as Router, Switch,
 
 function App() {
 
-  const [events, setEvents] = useState([]);
+  // const [events, setEvents] = useState([]);
 
-  useEffect(() => {
-    const fetchEvents = async () => {
-      const events = await getEvents();
-      setEvents(events)
-      console.log(events);
-    };
-    fetchEvents();
-  }, []);
+  // useEffect(() => {
+  //   const fetchEvents = async () => {
+  //     const events = await getEvents();
+  //     setEvents(events)
+  //     console.log(events);
+  //   };
+  //   fetchEvents();
+  // }, []);
 
   return (
     <>
 
-    <h1> { events.map(event => <h2 key = {event.id}>{event.eventTitle}</h2>)} </h1>
+    {/* <h1> { events.map(event => <h2 key = {event.id}>{event.eventTitle}</h2>)} </h1> */}
       {/* This is the alias of BrowserRouter i.e. Router */}
       <GoogleOAuthProvider clientId="805040466500-ive5e8oeebvngubg54v1gatfg10ch803.apps.googleusercontent.com">
       <Router>
@@ -43,9 +43,9 @@ function App() {
           props we passes the imported component*/}
           <Route path="/profile" component={Profile} />
           <Route path="/messenger" component={Messenger} />
-
-          
           <Redirect to="/profile" />
+          <Route path="/createpost" component={CreatePost} />
+          <Redirect to="/" />
         </Switch>
       </Router>
       </GoogleOAuthProvider>

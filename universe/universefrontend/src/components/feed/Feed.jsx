@@ -5,7 +5,9 @@ import Post1 from "../post/Post1"
 import Post2 from "../post/Post2"
 import Post3 from "../post/Post3"
 import Post4 from "../post/Post4"
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import {getEvents} from "../../api"
 
 
 export var data = [
@@ -22,9 +24,21 @@ export default function Feed(props) {
     //     { n: "Alex", d: "sep 6", a: 3, m: 7 },
     //   ]);
 
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const events = await getEvents();
+      setEvents(events)
+      console.log(events);
+    };
+    fetchEvents();
+  }, []);
+
+
     
-      const components = data.map((item) => (
-        <Post name={item.n} date={item.d} time={item.t} attending={item.a} max={item.m} location={item.l}/>
+      const components = events.map((item) => (
+        <Post name={item.author.username} description ={item.description} title={item.eventTitle} date={item.eventDate} time = {item.eventTime} location={item.location} attending={item.attendees.length} max = {item.maxAttendees}/>
       ));
 
 
