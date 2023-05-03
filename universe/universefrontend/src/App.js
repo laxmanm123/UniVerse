@@ -35,7 +35,8 @@ function App() {
           {/* This route is for home component 
           with exact path "/", in component props 
           we passes the imported component*/}
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Login} />
+          <Route path="/home" component={Home}/>
             
           {/* This route is for about component 
           with exact path "/about", in component 
@@ -43,7 +44,7 @@ function App() {
           <Route path="/profile" component={Profile} />
           <Route path="/messenger" component={Messenger} />
 
-          <Route path="/login" component={Login}/>
+          
           <Redirect to="/profile" />
         </Switch>
       </Router>
