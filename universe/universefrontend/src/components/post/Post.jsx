@@ -2,15 +2,28 @@ import "./post.css";
 import {Link} from "react-router-dom";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import { useHistory } from "react-router-dom";
 
+
+import {deleteEvent} from '../../api'
 
 export default function Post(props) {
+  const history = useHistory();
+
 
   function nameOfUser() {
     let x = "meghana";
     let y = "shira";
     return  Math.random() * (10 - 1) + 1 > 5 ? x : y;
   }
+
+  const handleDeleteClick = () => {
+    alert('Deleted post.')
+    history.push('/');
+    deleteEvent(1)  
+
+  };
+
 
   return (
     <div className="post">
@@ -49,6 +62,8 @@ export default function Post(props) {
           </div>
           <div>
           <button onClick={()=> alert('You have signed up for the event. The creator has been notified and will get in contact with you.')} className="postButton">Sign Me Up!</button>
+          <button onClick={handleDeleteClick} className="postButton">Delete</button>
+
           {/* <Stack direction="row" spacing={2}>
           <Button variant="contained">Sign Me Up!</Button>
           </Stack> */}

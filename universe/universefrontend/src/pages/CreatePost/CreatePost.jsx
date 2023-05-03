@@ -66,6 +66,7 @@ export default function CreatePost(props) {
         index: number,
       ) => {
         setSelectedIndex(index);
+        setEventTime(options[index]);
         setAnchorEl(null);
       };
     
@@ -78,17 +79,18 @@ export default function CreatePost(props) {
       const history = useHistory();
       
         const handleClick = () => {
-          const newData = {title: eventName, date: String(selectedDate), loc: eventLocation, maxAttendees: 5 };
+          const newData = {auth: "http://127.0.0.1:8000/users/3/" , date: String(selectedDate), time: eventTime, title: eventName, loc: eventLocation, maxAttendees: parseInt(eventMax) };
           // setData([...data, newData]);
+          alert("Event has been created");
           // data.push(newData);
           createEvent(newData).then(res => {
             setData(res.data);
-          }).catch(err => console.log(console.err));
+            alert("Event has been created");
+          }).catch(err => console.log(err));
           // for (let i = 0; i < data.length; i++) {
           // alert(data[i].n);
           // }
-          history.push('/');
-
+          history.push('/');  
         };      
 
         const [eventName, setEventName] = useState('');
@@ -96,9 +98,13 @@ export default function CreatePost(props) {
         const [selectedDate, setSelectedDate] = useState('');
         const [eventTime, setEventTime] = useState('');      
         const [eventAttending, setEventAttending] = useState('');
-        const [eventMax, setEventMax] = useState('');      
+        const [eventMax, setEventMax] = useState(0);      
         const [eventDesc, setEventDesc] = useState('');      
      
+
+        const handleEventMax = (event) => {
+          setEventMax(event.target.value);
+        }
       
       
     
@@ -165,7 +171,7 @@ export default function CreatePost(props) {
         >
           <ListItemText
             primary="What time is the event happening?"
-            secondary={options[selectedIndex]}
+            secondary={eventTime}
           />
         </ListItem>
       </List>
@@ -208,6 +214,8 @@ export default function CreatePost(props) {
           InputLabelProps={{
             shrink: true,
           }}
+          value = {eventMax}
+          onChange = {handleEventMax}
         />
 
       </div>
@@ -225,6 +233,7 @@ export default function CreatePost(props) {
           <form>
             <textarea rows="15" cols="100"
             placeholder= "Enter details on who you're looking for, what you'd like to do, who to contact, or other helpful information!"  
+            onChange = {handleEventDescChange}
             />
             </form>
 

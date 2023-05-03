@@ -15,22 +15,27 @@ export const getEvents = async() => {
   return data;
 }
 
+export const getUser = async(id) => {
+  let data = await api.get(`users/`).then(({data}) => data);
+  return data;
+}
+
 export const createEvent = async (obj) => {
     let res = await api.post('events/', {
-          //author: obj.auth,
+          author: obj.auth,
           eventTitle: obj.title,
           eventDate: obj.date,
-          eventTime: 'noon',
+          eventTime: obj.time,
           maxAttendees: obj.maxAttendees,
-          description: "obj.d",
-          attendees: '',
+          description: obj.description,
+          attendees: [],
           location: obj.loc,
-          typeOfEvent: 0
         })
         console.log(res)
       }
       
 export const deleteEvent = async(id) => {
         let res = await api.delete(`/events/${id}`);
+        return res;
     }
  
