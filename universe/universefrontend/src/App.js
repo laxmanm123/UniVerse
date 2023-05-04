@@ -5,6 +5,8 @@ import Messenger from "./pages/Messenger/Messenger";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
 import CreatePost from "./pages/CreatePost/CreatePost";
+import EditProfile from "./pages/EditProfile/EditProfile";
+
 import {getEvents} from "./api";
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
@@ -44,6 +46,8 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/createpost" component={CreatePost} />
+          <Route path="/editprofile" component={EditProfile} />
+
           <Redirect to="/" />
         </Switch>
       </Router>

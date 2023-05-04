@@ -7,7 +7,7 @@ import Post3 from "../post/Post3"
 import Post4 from "../post/Post4"
 import { useState, useEffect } from "react";
 
-import { getEvents, getUser } from "../../api"
+import { getEvents, getUser, getSingleUser } from "../../api"
 
 
 
@@ -59,19 +59,22 @@ export default function Feed(props) {
   //     };
 //user.filter(x => x.id === parseInt(item.author.slice(-2).charAt(0)))[0]
 
+// user.filter(x => x.id === parseInt(item.author.slice(-2).charAt(0)))[0].username
 
   const components = events.map((item) => (
-    <Post key={item.id} 
+    <Post myKey={item.id} 
     name={
+      // getSingleUser(item.author.slice(-2).charAt(0))
       user.filter(x => x.id === parseInt(item.author.slice(-2).charAt(0)))[0].username
-    } 
+    }
     description={item.description} 
     title={item.eventTitle} 
     date={item.eventDate}
     time={item.eventTime} 
     location={item.location} 
     attending={item.attendees.length} 
-    max={item.maxAttendees} />
+    max={item.maxAttendees} 
+    />
   ));
 
 

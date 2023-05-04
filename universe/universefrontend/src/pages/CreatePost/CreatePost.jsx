@@ -79,7 +79,7 @@ export default function CreatePost(props) {
       const history = useHistory();
       
         const handleClick = () => {
-          const newData = {auth: "http://127.0.0.1:8000/users/1/", date: String(selectedDate), time: eventTime, title: eventName, loc: eventLocation, maxAttendees: parseInt(eventMax) };
+          const newData = {auth: "http://127.0.0.1:8000/users/1/", date: String(selectedDate), time: eventTime, title: eventName, loc: eventLocation, maxAttendees: parseInt(eventMax), description: eventDesc };
           // setData([...data, newData]);
           // data.push(newData);
           createEvent(newData).then(res => {
@@ -104,8 +104,6 @@ export default function CreatePost(props) {
         const handleEventMax = (event) => {
           setEventMax(event.target.value);
         }
-      
-      
     
         const handleEventNameChange = (event) => {
           setEventName(event.target.value);
@@ -229,12 +227,16 @@ export default function CreatePost(props) {
             placeholder="Description"
             className="eDescription"
           /> */}
-          <form>
-            <textarea rows="15" cols="100"
+          <div>
+          <input
+          type="text"
+          style={{width: "200px", height: "100px"}}
+            // <textarea rows="15" cols="100"
             placeholder= "Enter details on who you're looking for, what you'd like to do, who to contact, or other helpful information!"  
             onChange = {handleEventDescChange}
             />
-            </form>
+            {/* </input> */}
+            </div>
 
 
          <hr className="shareHr"/>

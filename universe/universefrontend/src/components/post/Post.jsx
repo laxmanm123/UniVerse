@@ -12,18 +12,16 @@ import {deleteEvent} from '../../api'
 export default function Post(props) {
   const history = useHistory();
 
+  const x = props.myKey
 
-  function nameOfUser() {
-    let x = "meghana";
-    let y = "shira";
-    return  Math.random() * (10 - 1) + 1 > 5 ? x : y;
-  }
 
   const handleDeleteClick = async () => {
-    alert('Deleted post.')
+    // alert('Deleted post.')
+    console.log('here');
     history.push('/');
-    const response = await deleteEvent(1);
-    console.log(response);
+    const response = await deleteEvent(x);
+    window.location.reload();
+
   };
 
 
@@ -67,7 +65,6 @@ export default function Post(props) {
           <div>
           <button onClick={()=> alert('You have signed up for the event. The creator has been notified and will get in contact with you.')} className="postButton">Sign Me Up!</button>
           <button onClick={handleDeleteClick} className="postButton">Delete</button>
-
           {/* <Stack direction="row" spacing={2}>
           <Button variant="contained">Sign Me Up!</Button>
           </Stack> */}

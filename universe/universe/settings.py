@@ -56,8 +56,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware'
 ]
 
 REST_FRAMEWORK = {'DEFAULT_PERMISSION_CLASS': 
@@ -65,7 +65,15 @@ REST_FRAMEWORK = {'DEFAULT_PERMISSION_CLASS':
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+# CORS_ALLOW_CREDENTIALS = True
+
 ROOT_URLCONF = 'universe.urls'
+
+ALLOWED_HOSTS = ['*']
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000'
+]
 
 TEMPLATES = [
     {

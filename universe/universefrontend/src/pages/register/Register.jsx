@@ -1,6 +1,10 @@
 import "./register.css"
+import { Link, useHistory } from "react-router-dom";
+
 
 export default function Register() {
+    const history = useHistory();
+
     return (
         <div className="rlogin">
             <div className="rloginWrapper">
@@ -47,7 +51,7 @@ export default function Register() {
                             </button></span> */}
                         </div>
                         <div>
-                            <span className="rinputBox"><button className="rloginButton">Sign Up</button></span>
+                            <span className="rinputBox"><button onClick={()=> history.push('/profile')} className="rloginButton">Sign Up</button></span>
                         </div>
                        
                     </div>

@@ -5,16 +5,20 @@ import Feed from "../../components/feed/Feed";
 import Rightbar from "../../components/rightbar/Rightbar";
 import Post from "../../components/post/Post"
 
+import { Link, useHistory } from "react-router-dom";
+
+
 import { useState, useEffect } from "react";
 
 import { getEvents, getUser } from "../../api"
 
 
-export default function Profile() {
+export default function Profile(props) {
 
-    const [events, setEvents] = useState([]);
+  const history = useHistory();
 
-    
+  const [events, setEvents] = useState([]);
+
   useEffect(() => {
     const fetchEvents = async () => {
       const events = await getEvents();
@@ -26,6 +30,26 @@ export default function Profile() {
     };
     fetchEvents();
   }, []);
+
+
+
+
+  const [user, setUser] = useState([]);
+
+  const curId = 1;
+    
+  useEffect(() => {
+    const fetchUser = async () => {
+      const user = await getUser(1);
+      setUser(user);
+      // setUser(user);
+      // console.log(user);
+      // console.log(events);
+    };
+    fetchUser();
+  }, []);
+
+  
 
   let components = events.filter(event => event.author === "http://127.0.0.1:8000/users/1/").map((item) => (
     <Post key={item.id} 
@@ -41,6 +65,8 @@ export default function Profile() {
     attending={item.attendees.length} 
     max={item.maxAttendees} />
   ));
+
+
 
 
     return (
@@ -65,6 +91,10 @@ export default function Profile() {
                     Description: Hello! My name is Laxman, and I am a junior studying CS and English. I like reading, writing, watching movies, and more! :D 
             
                     </span>
+                    <div className="sidebarListItemText">
+                        <button onClick={()=> history.push('/editprofile')} className="Home-button">Edit Profile</button>
+                    </div>
+
                     <div className="titleWrapper">
                     <span className="profileInfoName" id="events-header">Events Created/Leading</span>
                     </div>

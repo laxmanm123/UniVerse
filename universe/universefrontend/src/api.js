@@ -15,10 +15,21 @@ export const getEvents = async() => {
   return data;
 }
 
-export const getUser = async(id) => {
+export const getUser = async() => {
   let data = await api.get(`users/`).then(({data}) => data);
   return data;
 }
+
+export const getSingleUser = async(id) => {
+  let data = await api.get(`users/${id}/`).then(({data}) => data);
+  return data;
+}
+
+export const updateUser = async(obj) => {
+  let data = await api.put(`users/update/${obj.id}/`, obj.data);
+  console.log(data);
+}
+
 
 export const createEvent = async (obj) => {
     let res = await api.post('events/', {
@@ -35,7 +46,7 @@ export const createEvent = async (obj) => {
       }
       
 export const deleteEvent = async(id) => {
-        let res = await api.delete(`/events/${id}`);
+        let res = await api.delete(`/events/${id}/`);
         return res;
     }
 
