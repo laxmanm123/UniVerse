@@ -1,7 +1,7 @@
 .login{
     width: 100vw;
     height: 100vh;
-    background-color: rgb(234, 221, 202);
+    background-color: #f9ebdc;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,7 +23,7 @@
 .loginLogo{
     font-size: 50px;
     font-weight: 800;
-    color: darkcyan;
+    color: #ce7567;
 }
 
 .loginDesc {
@@ -56,7 +56,7 @@
     height: 50px;
     border-radius: 10px;
     border: none;
-    background-color: lightsalmon;
+    background-color: #4a7b84;
     color: white;
     font-size: 20px;
     font-weight: 500;
@@ -74,7 +74,7 @@
     height: 50px;
     border-radius: 10px;
     border: none;
-    background-color: darkcyan;
+    background-color: #ce7567;
     color: white;
     font-size: 18px;
     font-weight: 500;

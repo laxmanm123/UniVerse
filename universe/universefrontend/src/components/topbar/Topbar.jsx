@@ -21,12 +21,12 @@ export default function Topbar() {
 
     return (
         <div className="topbarContainer">
-            <div className="topbarLeft"> 
-                <span className="logo"><Link to="/login">UniVerse</Link></span>
-                
+            <div className="topbarLeft">
+                <span className="logo"><Link style={{color: '#f9ebdc'}} to="/login">UniVerse</Link></span>
+               
             </div>
 
-            <div className="topbarCenter"> 
+            <div className="topbarCenter">
             <div className="searchbar">
             <span class="material-icons md-36">search</span>            
                 <input placeholder="Search or filter for events" className="searchInput"/>
@@ -41,8 +41,8 @@ export default function Topbar() {
                 <div className="topbarIcons">
                     <div className="topbarIconItem" >
                     <span class="material-icons md-36">face</span>
-                    <Link to="/register">Register</Link>
-                    
+                    <span className="register"><Link style={{color: '#f9ebdc'}} to="/register">Register</Link></span>
+                   
                     {/* <span className="topbarIconBadge" > 1</span> */}
                 </div>
                 {/* <div className="topbarIconNotification" >
@@ -55,16 +55,15 @@ export default function Topbar() {
                 </div> */}
                 </div>
                 <span className="profilePageButton">
-                    <button onClick={()=> history.push('/profile')} className="Top-button">Profile 
+                    <button onClick={()=> history.push('/profile')} className="Top-button">Profile
                     <img src = "/assets/profilepic4.jpg" alt="" className="topbarImg" />
                     </button>
-                    
+                   
                 </span>
-                
+               
             </div>
 
         </div>
     );
 }
-
 

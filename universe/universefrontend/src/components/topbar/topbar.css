@@ -1,7 +1,7 @@
 .topbarContainer {
     height: 50px;
     width: 100%;
-    background-color: darksalmon;
+    background-color: #ce7567;
     display: flex;
     align-items: center;
     position: sticky;
@@ -11,15 +11,15 @@
 
 .topbarLeft {
     flex: 3;
-    background-color: darksalmon;
+    background-color: #ce7567;
 }
 .topbarCenter {
     flex: 5;
-    background-color: darksalmon;
+    background-color: #ce7567;
 }
 .topbarRight {
     flex: 4;
-    background-color: darksalmon;
+    background-color: #ce7567;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -66,6 +66,11 @@
 
 .topbarIcons {
     display: flex;
+    color: blanchedalmond;
+}
+
+.register {
+    color: blanchedalmond;
 }
 
 .topbarIconItem {
@@ -73,7 +78,7 @@
     cursor: pointer;
     position: relative;
 }
-  
+ 
 .topbarIconBadge {
     width: 15px;
     height: 15px;
@@ -88,7 +93,7 @@
     justify-content: center;
     font-size: 12px;
   }
-  
+ 
   .topbarImg {
     width: 32px;
     height: 32px;
@@ -107,7 +112,10 @@
   }
 
   .Top-button {
-    background-color: darksalmon;
+    background-color: #ce7567;
     border-color: transparent;
+    color: #f9ebdc;  ;
+    ;
   }
+
     

@@ -1,19 +1,19 @@
-.login{
+.rlogin{
     width: 100vw;
     height: 100vh;
-    background-color: #f0f2f5;
+    background-color: #f9ebdc;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.loginWrapper{
+.rloginWrapper{
     width: 70%;
     height: 70%;
     display: flex;
 }
 
-.loginLeft, .loginRight{
+.rloginLeft, .rloginRight{
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -21,28 +21,36 @@
     padding: 10px;
 }
 
-.loginLogo{
+.left, .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+
+.rloginLogo{
     font-size: 50px;
     font-weight: 800;
-    color: lightsalmon;
+    color: #ce7567;
 }
 
-.loginDesc {
+.rloginDesc {
     font-size: 24px;
-    /* padding-left: 10px; */
 }
 
-.loginBox{
-    height: 400px;
+.rloginBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.box {
     padding: 20px;
     background-color: white;
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
-.loginInput {
+.rloginInput {
     height: 50px;
     border-radius: 10px;
     border: 1px solid gray;
@@ -50,41 +58,42 @@
     padding-left: 20px;
 }
 
-.loginInput:focus{
+.rloginInput:focus{
     outline: none;
 }
 
-.loginButton{
+.rloginButton{
     height: 50px;
     border-radius: 10px;
     border: none;
-    background-color: lightpink;
+    background-color: #ce7567;
     color: white;
     font-size: 20px;
     font-weight: 500;
     cursor: pointer;
 }
 
-.loginForgot{
+.rloginForgot{
     text-align: center;
     color: #1775ee;
 }
 
-.loginRegisterButton{
+.rloginRegisterButton{
     width: 60%;
     align-self: center;
     height: 50px;
     border-radius: 10px;
     border: none;
-    background-color: lightseagreen;
+    background-color: #ce7567;
     color: white;
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
 }
 
-.inputBox {
+.rinputBox {
     padding: 5px;
     display: flex;
     justify-content: center;
 }
+

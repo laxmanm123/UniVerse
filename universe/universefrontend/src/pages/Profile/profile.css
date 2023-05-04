@@ -2,8 +2,8 @@
     text-align: center;
     width: 100%;
     border-radius: 10px;
-    -webkit-box-shadow: 0px 0px 16px -8px rgba(222, 58, 115, 0.68);
-    box-shadow: 0px 0px 16px -8px rgba(222, 58, 115, 0.68);
+    /* -webkit-box-shadow: 0px 0px 16px -8px rgba(222, 58, 115, 0.68);
+    box-shadow: 0px 0px 16px -8px rgba(222, 58, 115, 0.68); */
     margin: 30px 0;
     padding: 10px;
 
@@ -16,6 +16,7 @@
 
 .profileRight {
     flex: 9;
+    background-color: #f9ebdc;
 }
 
 .profileCover {
@@ -38,7 +39,6 @@
     left:0;
     right:0;
     margin:auto;
-    top:150;
     border:3px solid white
 }
 
@@ -52,12 +52,23 @@
 .profileInfoName {
     font-size: 24px;
     text-align: center;
+    padding: 10px;
 }
 
-.profileUserDesc {
+#events-header {
+    background-color: #ce7567;
+    color: white;
+}
+
+.profileInfoDesc {
     font-weight: 300;
+    padding: 5px;
 }
 
 .profileRightBottom {
     display:flex;
+    width: 50%;
+    text-align: center;
+    font-weight: 300;
+    padding: 5px;
 }

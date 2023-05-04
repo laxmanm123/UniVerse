@@ -5,6 +5,8 @@ import Stack from '@mui/material/Stack';
 import { useHistory } from "react-router-dom";
 
 
+
+
 import {deleteEvent} from '../../api'
 
 export default function Post(props) {
@@ -17,15 +19,17 @@ export default function Post(props) {
     return  Math.random() * (10 - 1) + 1 > 5 ? x : y;
   }
 
-  const handleDeleteClick = () => {
+  const handleDeleteClick = async () => {
     alert('Deleted post.')
     history.push('/');
-    deleteEvent(1)  
-
+    const response = await deleteEvent(1);
+    console.log(response);
   };
 
 
   return (
+
+    
     <div className="post">
       <div className="postWrapper">
         <div className="postTop">

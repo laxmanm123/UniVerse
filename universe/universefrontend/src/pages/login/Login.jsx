@@ -1,9 +1,16 @@
-// import { GoogleLogin } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
+import "./login.css";
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom";
 // import "./login.css";
-// import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
+import { Link } from "react-router-dom";
+import * as React from 'react';
+
 
 
 // export default function Login() {
+//   const history = useHistory();
+
 //   return (
 //     <div className="login">
 //       <div className="loginWrapper">
@@ -15,16 +22,16 @@
 //             events, interests, and experiences on UniVerse
 //           </span>
 //         </div>
-//         <div className="loginRight">
+//         <div className="loginRight">-
 //           <div className="loginBox">
 //             <input placeholder="Email" className="loginInput" />
 //             <input placeholder="Password" className="loginInput" />
-//             <button className="loginButton">Log In</button>
+//              <button onClick={()=> history.push('/home')} className="loginButton">Log In</button>
 //             <span className="loginForgot">Forgot Password?</span>
 //             <button className="loginRegisterButton">
 //               Create a New Account
 //             </button>
-//             <GoogleLogin
+//             {/* <GoogleLogin
             
 //               onSuccess={(credentialResponse) => {
                 
@@ -37,16 +44,14 @@
 //               ux_mode="popup"
 //               redirectUri="http://localhost:3000/profile"
 
-//             />
+//             /> */}
 //           </div>
 //         </div>
 //       </div>
 //     </div>
 //   );
 // }
-import { GoogleLogin } from "@react-oauth/google";
-import { useHistory } from "react-router-dom";
-import "./login.css";
+
 
 export default function Login() {
   const history = useHistory();
@@ -74,7 +79,7 @@ export default function Login() {
           <div className="loginBox">
             <input placeholder="Email" className="loginInput" />
             <input placeholder="Password" className="loginInput" />
-            <button className="loginButton">Log In</button>
+            <button onClick={()=> history.push('/Home')} className="loginButton">Log In</button>
             <span className="loginForgot">Forgot Password?</span>
             <button className="loginRegisterButton">
               Create a New Account

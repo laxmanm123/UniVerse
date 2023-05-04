@@ -38,4 +38,19 @@ export const deleteEvent = async(id) => {
         let res = await api.delete(`/events/${id}`);
         return res;
     }
+
+// export const deleteEvent = async (eventId) => {
+//   const url = 'http://127.0.0.1:8000/events/${eventId}';
+//   const response = await fetch(url, {
+//     method: 'DELETE',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'X-Requested-With': 'XMLHttpRequest',
+//       'Access-Control-Allow-Origin': '*'
+//     },
+//   });
+//   const data = await response.json();
+//   return data;
+// };
+
  

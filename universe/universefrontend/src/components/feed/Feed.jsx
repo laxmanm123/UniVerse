@@ -10,19 +10,9 @@ import { useState, useEffect } from "react";
 import { getEvents, getUser } from "../../api"
 
 
-export var data = [
-  { n: "Meghana", l: "downtown", d: "nov 8", t: "morning", a: 1, m: 5 },
-  { n: "Lax", l: "downtown", d: "mar 8", t: "evening", a: 1, m: 5 },
-  { n: "Ashna", l: "downtown", d: "sep 8", t: "night", a: 1, m: 5 },
-];
 
 export default function Feed(props) {
 
-  //  [data] = useState([
-  //     { n: "Meghana", d: "nov 8", a: 1, m: 5 },
-  //     { n: "Shira", d: "mar 10", a: 2, m: 6 },
-  //     { n: "Alex", d: "sep 6", a: 3, m: 7 },
-  //   ]);
 
   const [events, setEvents] = useState([]);
 
@@ -36,19 +26,28 @@ export default function Feed(props) {
       setEvents(events);
       // setUser(user);
       // console.log(user);
-      console.log(events);
+      // console.log(events);
     };
     fetchEvents();
   }, []);
 
   useEffect(() => {
     const fetchUser = async () => {
-      const user = await getUser(1);
+      const user = await getUser();
       setUser(user);
-      console.log(user);
+      // console.log(user);
     };
     fetchUser();
   }, []);
+
+  // const getUserName = () => {
+  //   events = events.map((event) => {
+  //     let i = parseInt(event.author.slice(-2).charAt(0))
+  //     let auth = user.filter(x => x.id === i)[0]
+  //     console.log(auth.name);
+  //   })
+  //   console.log('HI')
+  // }
 
   // const temp = (event) => {
   //     let str = (event.author).slice(-2).charAt(0);
@@ -58,24 +57,29 @@ export default function Feed(props) {
   //       let res = await getUser(parseInt(item.author.slice(-2).charAt(0))).then(({data}) => res);
   //       return res.username;
   //     };
-
+//user.filter(x => x.id === parseInt(item.author.slice(-2).charAt(0)))[0]
 
 
   const components = events.map((item) => (
-    <Post key={item.id} name={item.author} description={item.description} title={item.eventTitle} date={item.eventDate}
-      time={item.eventTime} location={item.location} attending={item.attendees.length} max={item.maxAttendees} />
+    <Post key={item.id} 
+    name={
+      user.filter(x => x.id === parseInt(item.author.slice(-2).charAt(0)))[0].username
+    } 
+    description={item.description} 
+    title={item.eventTitle} 
+    date={item.eventDate}
+    time={item.eventTime} 
+    location={item.location} 
+    attending={item.attendees.length} 
+    max={item.maxAttendees} />
   ));
 
-  const comp = user.map((user) => (
-    user.username
-  ));
 
 
   return (
     <div className="feed">
       <div className="feed">
         <div className="feedWrapper">
-          {comp}
           {components}
 
           {/* <Post />

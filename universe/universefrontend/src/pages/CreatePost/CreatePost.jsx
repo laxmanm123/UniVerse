@@ -65,7 +65,7 @@ export default function CreatePost(props) {
         event: React.MouseEvent<>,
         index: number,
       ) => {
-        setSelectedIndex(index);
+        setSelectedIndex(index);  
         setEventTime(options[index]);
         setAnchorEl(null);
       };
@@ -79,9 +79,8 @@ export default function CreatePost(props) {
       const history = useHistory();
       
         const handleClick = () => {
-          const newData = {auth: "http://127.0.0.1:8000/users/3/" , date: String(selectedDate), time: eventTime, title: eventName, loc: eventLocation, maxAttendees: parseInt(eventMax) };
+          const newData = {auth: "http://127.0.0.1:8000/users/1/", date: String(selectedDate), time: eventTime, title: eventName, loc: eventLocation, maxAttendees: parseInt(eventMax) };
           // setData([...data, newData]);
-          alert("Event has been created");
           // data.push(newData);
           createEvent(newData).then(res => {
             setData(res.data);

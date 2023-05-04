@@ -5,8 +5,44 @@ import Feed from "../../components/feed/Feed";
 import Rightbar from "../../components/rightbar/Rightbar";
 import Post from "../../components/post/Post"
 
+import { useState, useEffect } from "react";
+
+import { getEvents, getUser } from "../../api"
+
 
 export default function Profile() {
+
+    const [events, setEvents] = useState([]);
+
+    
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const events = await getEvents();
+      // const user = await getUser(1);
+      setEvents(events);
+      // setUser(user);
+      // console.log(user);
+      // console.log(events);
+    };
+    fetchEvents();
+  }, []);
+
+  let components = events.filter(event => event.author === "http://127.0.0.1:8000/users/1/").map((item) => (
+    <Post key={item.id} 
+    name={
+      'laxmanmohanarajan'
+
+    } 
+    description={item.description} 
+    title={item.eventTitle} 
+    date={item.eventDate}
+    time={item.eventTime} 
+    location={item.location} 
+    attending={item.attendees.length} 
+    max={item.maxAttendees} />
+  ));
+
+
     return (
         <>
         <Topbar/>
@@ -19,25 +55,26 @@ export default function Profile() {
                         <img className="profileUserImage" src="assets/profilepic4.jpg" alt="" />
                     </div>
                     <div className="profileInfo">
-                        <h4 className="profileInfoName">Name of User</h4>
-                        <span className="profileInfoDesc">Age</span>
-                        <span className="profileInfoDesc">Major</span>
-                        <span className="profileInfoDesc">Year</span>
-                        <span className="profileInfoDesc">Gender & Pronouns</span>
+                        <h4 className="profileInfoName">Laxman Mohanarajan</h4>
+                        <span className="profileInfoDesc">20</span>
+                        <span className="profileInfoDesc">Computer Science</span>
+                        <span className="profileInfoDesc">2024</span>
+                        <span className="profileInfoDesc">He/Him</span>
                         {/* This is where we can add more info like res cluster, pronouns, major, age, etc */}
                 <span className="profileRightBottom">
-                    Description Placeholder: Hello! My name is Meghana, and I am a junior studying CS and English. I like reading, writing, watching movies, and more! :D 
+                    Description: Hello! My name is Laxman, and I am a junior studying CS and English. I like reading, writing, watching movies, and more! :D 
             
                     </span>
                     <div className="titleWrapper">
-                    <span className="profileInfoName">Events Created/Leading</span>
+                    <span className="profileInfoName" id="events-header">Events Created/Leading</span>
                     </div>
                     </div>
                 </div>
+                {components}
 
-                    <Post />
 
-                   { /*<Feed/>*/ }
+
+                    { /*<Feed/>*/ }
                     {/* NOTICE FOR WHEN CODING RIGHTBAR: go back and add {profile} as a parameter */}
                 </div>
                 
