@@ -5,8 +5,11 @@ import { useHistory } from "react-router-dom";
 // import "./login.css";
 import { Link } from "react-router-dom";
 import * as React from 'react';
+import { useState } from "react";
 
 
+
+let whoami = 0;
 
 // export default function Login() {
 //   const history = useHistory();
@@ -65,6 +68,12 @@ export default function Login() {
     console.log("Login Failed");
   };
 
+  const testt = () => {
+    whoami = 2;
+    history.push('/');
+    console.log(whoami);
+  };
+
   return (
     <div className="login">
       <div className="loginWrapper">
@@ -77,9 +86,9 @@ export default function Login() {
         </div>
         <div className="loginRight">
           <div className="loginBox">
-            <input placeholder="Email" className="loginInput" />
+            <input placeholder="Username" className="loginInput" />
             <input placeholder="Password" className="loginInput" />
-            <button onClick={()=> history.push('/Home')} className="loginButton">Log In</button>
+            <button onClick={testt} className="loginButton">Log In</button>
             <span className="loginForgot">Forgot Password?</span>
             <button className="loginRegisterButton">
               Create a New Account
@@ -97,3 +106,5 @@ export default function Login() {
     </div>
   );
 }
+
+export {whoami};

@@ -12,15 +12,20 @@ import {deleteEvent} from '../../api'
 export default function Post(props) {
   const history = useHistory();
 
-  const x = props.myKey
+  const x = props.myKey // x is the POST'S id
+  const y = props.check // y is the current user's id
 
 
   const handleDeleteClick = async () => {
     // alert('Deleted post.')
     console.log('here');
     history.push('/');
+    if (y == 1) {
     const response = await deleteEvent(x);
     window.location.reload();
+    } else {
+      alert("You cannot delete other people's posts")
+    }
 
   };
 

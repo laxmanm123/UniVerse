@@ -5,20 +5,26 @@ import * as React from 'react';
 import {useState} from 'react';
 import { useHistory } from "react-router-dom";
 
-import {createEvent} from '../../api'
+import {updateUser} from '../../api'
 
 
 export default function EditProfile(props) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [selectedIndex, setSelectedIndex] = React.useState(1);
+    const [data, setData] = useState('');
+
 
     const open = Boolean(anchorEl);
-      const history = useHistory();
-      
+      const history = useHistory();      
         const handleClick = () => {
-          const newData = {fname: fname, lname: lname, age: age, major: major, year: year, pronouns: pro, bio: desc };
-          createEvent(newData).then(res => {
-            alert("Event has been created");
+          const newData = {num: 1, 
+            fn: String(fname), ln: String(lname), un: "temp", pn: String(pro), ag: parseInt(age), mj: String(major), rc: 'year', b: String(desc)
+           };
+           console.log(newData)
+          updateUser(newData).then(res =>  {
+            console.log("res: ", res);
+            // setData(res.data);
+            alert("Profile has been updated!!");
           }).catch(err => console.log(err));
           history.push('/profile');  
         };      

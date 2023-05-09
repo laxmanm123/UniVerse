@@ -1,4 +1,6 @@
 import axios from 'axios'
+// import CircularJSON from 'circular-json';
+
 
 const api = axios.create({
     baseURL: "http://127.0.0.1:8000/"
@@ -26,9 +28,30 @@ export const getSingleUser = async(id) => {
 }
 
 export const updateUser = async(obj) => {
-  let data = await api.put(`users/update/${obj.id}/`, obj.data);
+  console.log(obj);
+  let x = {
+    id: obj.num,
+    fname: obj.fn,
+    lname: obj.ln,
+    username: obj.un,
+    pronouns: obj.pn,
+    age: obj.ag,
+    major: obj.mj,
+    residential_cluster: obj.rc,
+    bio: obj.b
+  };
+  console.log(x);
+  let data = await api.put(`users/update/${obj.num}/`, x);
   console.log(data);
 }
+
+// export const updateUser = async(obj) => {
+//   // Serialize the object without circular references
+//   let data = CircularJSON.stringify(obj);
+//   let datamain = await api.put(`users/update/${obj.num}/`, data);
+//   console.log(datamain);
+// }
+
 
 
 export const createEvent = async (obj) => {

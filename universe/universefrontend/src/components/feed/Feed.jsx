@@ -7,17 +7,19 @@ import Post3 from "../post/Post3"
 import Post4 from "../post/Post4"
 import { useState, useEffect } from "react";
 
-import { getEvents, getUser, getSingleUser } from "../../api"
+import { getEvents, getUser, getSingleUser } from "../../api";
+import {timee} from "../rightbar/Rightbar"
 
+import { whoami } from "../../pages/login/Login"
 
 
 export default function Feed(props) {
 
-
+  const temp = timee;
   const [events, setEvents] = useState([]);
 
   const [user, setUser] = useState([]);
-
+  console.log(whoami);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -67,6 +69,7 @@ export default function Feed(props) {
       // getSingleUser(item.author.slice(-2).charAt(0))
       user.filter(x => x.id === parseInt(item.author.slice(-2).charAt(0)))[0].username
     }
+    check = {item.author.slice(-2).charAt(0)}
     description={item.description} 
     title={item.eventTitle} 
     date={item.eventDate}
@@ -84,6 +87,8 @@ export default function Feed(props) {
       <div className="feed">
         <div className="feedWrapper">
           {components}
+          {temp}
+          {whoami}
 
           {/* <Post />
                     <Post1 />
