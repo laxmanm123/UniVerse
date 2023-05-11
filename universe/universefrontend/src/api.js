@@ -52,7 +52,10 @@ export const updateUser = async(obj) => {
 //   console.log(datamain);
 // }
 
-
+export const addAttendee = async (eid, uid) => {
+  let res = await api.put(`events/addAttendee/${eid}/${uid}/`);
+  return res;
+}
 
 export const createEvent = async (obj) => {
     let res = await api.post('events/', {

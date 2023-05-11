@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { useHistory } from "react-router-dom";
+import { addAttendee } from "../../api";
 
 
 
@@ -27,6 +28,12 @@ export default function Post(props) {
       alert("You cannot delete other people's posts")
     }
 
+  };
+
+  const handleSignUp = async () => {
+    addAttendee(x, y);
+    alert('You have signed up for the event. The creator has been notified and will get in contact with you.');
+    window.location.reload();
   };
 
 
@@ -68,7 +75,7 @@ export default function Post(props) {
             {/* <Link to={{ pathname: "https://amherstcinema.org/" }} target="_blank">Amherst Movie Theater</Link> */}
           </div>
           <div>
-          <button onClick={()=> alert('You have signed up for the event. The creator has been notified and will get in contact with you.')} className="postButton">Sign Me Up!</button>
+          <button onClick={handleSignUp} className="postButton">Sign Me Up!</button>
           <button onClick={handleDeleteClick} className="postButton">Delete</button>
           {/* <Stack direction="row" spacing={2}>
           <Button variant="contained">Sign Me Up!</Button>
