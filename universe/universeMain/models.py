@@ -6,6 +6,8 @@ class studentUser(models.Model):
     fname = models.CharField(max_length=100)
     lname = models.CharField(max_length=100)
     username = models.CharField(max_length=100)
+    email = models.CharField(max_length=50, default='')
+    password = models.CharField(max_length=30, default='')
     pronouns = models.CharField(max_length=50)
     age = models.PositiveIntegerField()
     major = models.CharField(max_length=100)

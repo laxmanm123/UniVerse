@@ -11,17 +11,49 @@ import { addAttendee } from "../../api";
 import {deleteEvent} from '../../api'
 
 export default function Post(props) {
+  // onload = (event) => {createButton()};
+  
   const history = useHistory();
 
   const x = props.myKey // x is the POST'S id
   const y = props.check // y is the current user's id
+  const z = props.author // this is the creator of the post
+  const a = props.attending
+  const b = props.max
+
+  // function createfn(){
+  //   //debugger;
+  //   const userID = parseInt(window.localStorage.getItem("userID"));
+
+  //   if (userID === parseInt(z)) {
+      
+  //     let element = document.createElement("button");
+  //     // element.onClick = handleDeleteClick();
+  //     element.innerHTML = "delete";
+  //     const buttonHolder = document.getElementById("deleteButtonHolder");
+    
+  //     buttonHolder.appendChild(element);
+  //   }
+  
+  // }
+
+  // function disableSignup() {
+  //   const userID = parseInt(window.localStorage.getItem("userID"));
+  //   const button = document.getElementById("postButton");
+  //   if (userID === z || a >= b) {
+  //     button.disabled = true;
+  //   }
+  // }
+
+  // window.onload = createfn();
+  // window.onload = disableSignup();
 
 
   const handleDeleteClick = async () => {
     // alert('Deleted post.')
     console.log('here');
     history.push('/');
-    if (y == 1) {
+    if (y == 3) {
     const response = await deleteEvent(x);
     window.location.reload();
     } else {
@@ -31,11 +63,17 @@ export default function Post(props) {
   };
 
   const handleSignUp = async () => {
+    if (y == z) {
+      alert("You cannot sign up for your own event!");
+    }
+    else if (a >= b) {
+      alert("You cannot sign up for this event. It is full.");
+    } else {
     addAttendee(x, y);
     alert('You have signed up for the event. The creator has been notified and will get in contact with you.');
     window.location.reload();
+    }
   };
-
 
   return (
 
@@ -76,6 +114,7 @@ export default function Post(props) {
           </div>
           <div>
           <button onClick={handleSignUp} className="postButton">Sign Me Up!</button>
+          {/* <div id = "deleteButtonHolder"></div> */}
           <button onClick={handleDeleteClick} className="postButton">Delete</button>
           {/* <Stack direction="row" spacing={2}>
           <Button variant="contained">Sign Me Up!</Button>

@@ -33,7 +33,7 @@ export default function Sidebar() {
                 </li>
                 <li className="sidebarListItem">
                     <span class="material-icons">groups</span>
-                    <button onClick={()=> history.push('/messenger')} className="Home-button">Groups</button>
+                    <button onClick={()=> history.push('/attending')} className="Home-button">Events Attending</button>
                       {/* <span className="sidebarListItemText">Groups</span> */}
                       {/* <Button variant="outlined">Groups</Button> */}
                 </li>

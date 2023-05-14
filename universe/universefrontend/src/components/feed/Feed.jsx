@@ -19,7 +19,6 @@ export default function Feed(props) {
   const [events, setEvents] = useState([]);
 
   const [user, setUser] = useState([]);
-  console.log(whoami);
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -63,22 +62,50 @@ export default function Feed(props) {
 
 // user.filter(x => x.id === parseInt(item.author.slice(-2).charAt(0)))[0].username
 
-  const components = events.map((item) => (
-    <Post myKey={item.id} 
-    name={
-      // getSingleUser(item.author.slice(-2).charAt(0))
-      user.filter(x => x.id === parseInt(item.author.slice(-2).charAt(0)))[0].username
-    }
-    check = {item.author.slice(-2).charAt(0)}
-    description={item.description} 
-    title={item.eventTitle} 
-    date={item.eventDate}
-    time={item.eventTime} 
-    location={item.location} 
-    attending={item.attendees.length} 
-    max={item.maxAttendees} 
-    />
-  ));
+  let components;
+
+  if(window.localStorage.getItem("timee") !== '') {
+    components = events.filter((item) => item.eventTime === window.localStorage.getItem("timee"))
+    .map((item) => (
+      <Post myKey={item.id} 
+      name={
+        // getSingleUser(item.author.slice(-2).charAt(0))
+        user.filter(x => x.id === parseInt(item.author.slice(-2).charAt(0)))[0].username
+      }
+      author = {item.author.slice(-2).charAt(0)}
+      check = {parseInt(window.localStorage.getItem("userID"))}
+      description={item.description} 
+      title={item.eventTitle} 
+      date={item.eventDate}
+      time={item.eventTime} 
+      location={item.location} 
+      attending={item.attendees.length} 
+      max={item.maxAttendees} 
+      />
+    ));
+  }
+  else {
+    components = components = events.map((item) => (
+      <Post myKey={item.id} 
+      name={
+        // getSingleUser(item.author.slice(-2).charAt(0))
+        user.filter(x => x.id === parseInt(item.author.slice(-2).charAt(0)))[0].username
+      }
+      author = {item.author.slice(-2).charAt(0)}
+      check = {parseInt(window.localStorage.getItem("userID"))}
+      description={item.description} 
+      title={item.eventTitle} 
+      date={item.eventDate}
+      time={item.eventTime} 
+      location={item.location} 
+      attending={item.attendees.length} 
+      max={item.maxAttendees} 
+      />
+    ));
+  }
+
+
+  
 
 
 

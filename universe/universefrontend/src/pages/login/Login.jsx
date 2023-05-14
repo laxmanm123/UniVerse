@@ -58,6 +58,8 @@ let whoami = 0;
 
 export default function Login() {
   const history = useHistory();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleGoogleLoginSuccess = (credentialResponse) => {
     console.log(credentialResponse);
@@ -68,10 +70,24 @@ export default function Login() {
     console.log("Login Failed");
   };
 
+  const handleUsername = (event) => {
+    setUsername(event.target.value);
+  }
+
+  const handlePassword = (event) => {
+    setPassword(event.target.value);
+  }
+
+
   const testt = () => {
-    whoami = 2;
+    if (username == "ashnajain" && password == "helloSunshine") {
+      whoami = 3;
+      const myname = "ashnajain"
+    window.localStorage.setItem("userID", whoami);
+    window.localStorage.setItem("username", myname);
     history.push('/');
     console.log(whoami);
+    }
   };
 
   return (
@@ -86,8 +102,8 @@ export default function Login() {
         </div>
         <div className="loginRight">
           <div className="loginBox">
-            <input placeholder="Username" className="loginInput" />
-            <input placeholder="Password" className="loginInput" />
+            <input placeholder="Username" className="loginInput" onChange={handleUsername}/>
+            <input type = "password" placeholder="Password" className="loginInput" onChange={handlePassword}/>
             <button onClick={testt} className="loginButton">Log In</button>
             <span className="loginForgot">Forgot Password?</span>
             <button className="loginRegisterButton">

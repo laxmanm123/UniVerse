@@ -6,6 +6,8 @@ import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
 import CreatePost from "./pages/CreatePost/CreatePost";
 import EditProfile from "./pages/EditProfile/EditProfile";
+import ProfileHandler from "./pages/Profile/ProfileHandler";
+import Attending from "./pages/Attending/Attending";
 
 import {getEvents} from "./api";
 import { GoogleOAuthProvider } from '@react-oauth/google';
@@ -41,12 +43,15 @@ function App() {
           {/* This route is for about component 
           with exact path "/about", in component 
           props we passes the imported component*/}
-          <Route path="/profile" component={Profile} />
+          <Route path="/profile" component={ProfileHandler} />
           <Route path="/messenger" component={Messenger} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/createpost" component={CreatePost} />
           <Route path="/editprofile" component={EditProfile} />
+          <Route path="/attending" component={Attending} />
+
+
 
           <Redirect to="/" />
         </Switch>

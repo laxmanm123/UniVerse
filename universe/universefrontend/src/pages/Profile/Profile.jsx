@@ -4,6 +4,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Feed from "../../components/feed/Feed";
 import Rightbar from "../../components/rightbar/Rightbar";
 import Post from "../../components/post/Post"
+import Post1 from "../../components/post/Post1";
 
 import { Link, useHistory } from "react-router-dom";
 
@@ -52,22 +53,20 @@ export default function Profile(props) {
   
 
   let components = events.filter(event => event.author === "http://127.0.0.1:8000/users/1/").map((item) => (
-    <Post key={item.id} 
+    <Post1 key={item.id} 
     name={
       'laxmanmohanarajan'
-
-    } 
+    }
+    check = {parseInt(window.localStorage.getItem("userID"))}
     description={item.description} 
     title={item.eventTitle} 
     date={item.eventDate}
     time={item.eventTime} 
     location={item.location} 
     attending={item.attendees.length} 
-    max={item.maxAttendees} />
+    max={item.maxAttendees}
+    interest = {item.attendees} />
   ));
-
-
-
 
     return (
         <>
@@ -81,15 +80,15 @@ export default function Profile(props) {
                         <img className="profileUserImage" src="assets/profilepic4.jpg" alt="" />
                     </div>
                     <div className="profileInfo">
-                        <h4 className="profileInfoName">Laxman Mohanarajan</h4>
-                        <span className="profileInfoDesc">20</span>
-                        <span className="profileInfoDesc">Computer Science</span>
-                        <span className="profileInfoDesc">2024</span>
-                        <span className="profileInfoDesc">He/Him</span>
+                        <h4 className="profileInfoName">{props.fname} {props.lname}</h4>
+                        <span className="profileInfoDesc">{props.age}</span>
+                        <span className="profileInfoDesc">{props.major}</span>
+                        <span className="profileInfoDesc">{props.residential_cluster}</span>
+                        <span className="profileInfoDesc">{props.pronouns}</span>
                         {/* This is where we can add more info like res cluster, pronouns, major, age, etc */}
                 <span className="profileRightBottom">
-                    Description: Hello! My name is Laxman, and I am a junior studying CS and English. I like reading, writing, watching movies, and more! :D 
-            
+                    {props.bio} 
+                    
                     </span>
                     <div className="sidebarListItemText">
                         <button onClick={()=> history.push('/editprofile')} className="Home-button">Edit Profile</button>
@@ -102,10 +101,6 @@ export default function Profile(props) {
                 </div>
                 {components}
 
-
-
-                    { /*<Feed/>*/ }
-                    {/* NOTICE FOR WHEN CODING RIGHTBAR: go back and add {profile} as a parameter */}
                 </div>
                 
             </div>

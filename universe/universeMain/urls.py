@@ -21,8 +21,10 @@ urlpatterns = [
     path('', views.home, name='universeMain-home'), #empty string since it is the home page
     path('about/', views.about, name='universeMain-about'), #empty string since it is the home page
     path('events/', views.get_events),
+    path('events/update/<int:id>/', views.edit_event, name='edit_user'),
+    path('events/addAttendee/<int:eid>/<int:uid>/', views.add_attendee, name='add_attendee'),
     path('events/<int:id>/', views.delete_event, name='delete'),
     path('users/', views.get_users, name='get_user'),
     path('users/<int:id>/', views.get_single_user, name='get_single_user'),
-    path('users/update/<int:id>/', views.edit_post, name='edit_post')
+    path('users/update/<int:id>/', views.edit_user, name='edit_user'),
 ]

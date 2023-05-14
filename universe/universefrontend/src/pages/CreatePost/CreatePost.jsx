@@ -79,7 +79,14 @@ export default function CreatePost(props) {
       const history = useHistory();
       
         const handleClick = () => {
-          const newData = {auth: "http://127.0.0.1:8000/users/1/", date: String(selectedDate), time: String(eventTime), title: eventName, loc: eventLocation, maxAttendees: parseInt(eventMax), description: eventDesc };
+          const newData = {
+            auth: "http://127.0.0.1:8000/users/1/", 
+            date: String(selectedDate), 
+            time: String(eventTime), 
+            title: eventName, 
+            loc: eventLocation, 
+            maxAttendees: parseInt(eventMax), 
+            description: eventDesc };
           // setData([...data, newData]);
           // data.push(newData);
           createEvent(newData).then(res => {
@@ -185,7 +192,6 @@ export default function CreatePost(props) {
         {options.map((option, index) => (
           <MenuItem
             key={option}
-            disabled={index === 0}
             selected={index === selectedIndex}
             onClick={(event) => handleMenuItemClick(event, index)}
           >

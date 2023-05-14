@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class studentUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = studentUser
-        fields = ('id', 'username', 'fname', 'lname', 'pronouns', 'age', 'major', 'residential_cluster', 'bio')
+        fields = ('id', 'username', 'fname', 'lname', 'pronouns', 'age', 'major', 'residential_cluster', 'bio', 'email', 'password')
 
 class EventSerializer(serializers.HyperlinkedModelSerializer):
     # author = UserSerializer()

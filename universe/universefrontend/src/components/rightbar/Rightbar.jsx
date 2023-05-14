@@ -26,7 +26,7 @@ export default function Rightbar() {
 
   const handleClose1 = () => {
     setAnchorEl(null);
-    timee = "Morning"
+    window.localStorage.setItem("timee", "Morning");
     history.push('/');  
     window.location.reload();
 
@@ -34,7 +34,7 @@ export default function Rightbar() {
   };
   const handleClose2 = () => {
     setAnchorEl(null);
-    timee = "Afternoon"
+    window.localStorage.setItem("timee", "Afternoon");
     history.push('/');  
     window.location.reload();
 
@@ -42,7 +42,7 @@ export default function Rightbar() {
   };
   const handleClose3 = () => {
     setAnchorEl(null);
-    timee = "Evening"
+    window.localStorage.setItem("timee", "Evening");
     history.push('/');  
     window.location.reload();
 
@@ -50,7 +50,7 @@ export default function Rightbar() {
   };
   const handleClose4 = () => {
     setAnchorEl(null);
-    timee = "Night"
+    window.localStorage.setItem("timee", "Night");
     history.push('/');  
     window.location.reload();
 
@@ -58,7 +58,7 @@ export default function Rightbar() {
   };
   const handleClose5 = () => {
     setAnchorEl(null);
-    timee = ""
+    window.localStorage.setItem("timee", "");
     window.location.reload();
 
   };

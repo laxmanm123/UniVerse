@@ -2,7 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
-from rest_framework import viewsets
+import json
+
+from rest_framework import viewsets, status
 from rest_framework.views import APIView
 
 from .serializers import *
@@ -41,7 +43,7 @@ def get_users(request):
         serializer = studentUserSerializer(user, many=True, context={'request': request})
         return JsonResponse({'StudentUser': serializer.data}, safe=False)
     if request.method == 'POST':
-        serializer = studentUser(data=request.data, context={'request': request})
+        serializer = studentUserSerializer(data=request.data, context={'request': request})
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -54,18 +56,39 @@ def get_single_user(request, id):
         serializer = studentUserSerializer(user, many=True, context={'request': request})
         return JsonResponse({'StudentUser': serializer.data}, safe=False)
     
+    
 @api_view(['PUT'])
-def edit_post(request, id):
-    try:
+def edit_user(request, id):
+    if request.method == 'PUT':
         user = studentUser.objects.get(pk=id)
-    except Event.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
+        print(request.data)
+        # print('here1')
+        serializer = studentUserSerializer(user, data=request.data)
+        # print('here2')
+        if serializer.is_valid():
+            serializer.save()   
+            return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+        # print('here3')
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view(['PUT'])
+def edit_event(request, id):
+    if request.method == 'PUT':
+        event = Event.objects.get(pk=id)
+        #serializer = EventSerializer(event, data=request.data)
+        serializer = EventSerializer(data=request.data, context={'request': request})
+        if serializer.is_valid():
+            serializer.save()   
+            return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    serializer = studentUserSerializer(user, data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+@api_view(['PUT'])
+def add_attendee(request, eid, uid):
+    if request.method == 'PUT':
+        event = Event.objects.get(pk=eid)
+        print(event.id)
+        event.attendees.add(uid)
+        return Response(status=status.HTTP_202_ACCEPTED)
     
 
 @api_view(['DELETE'])

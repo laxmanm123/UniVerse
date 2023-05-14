@@ -27,6 +27,39 @@ export const getSingleUser = async(id) => {
   return data;
 }
 
+export const createUser = async(obj) => {
+  console.log(obj);
+  let data = await api.post('users/', {
+    username: obj.username,
+    fname: obj.fname,
+    lname: obj.lname,
+    pronouns: obj.pronouns,
+    age: obj.age,
+    major: obj.major,
+    residential_cluster: obj.residential_cluster,
+    bio: obj.bio,
+    email: obj.email,
+    password: obj.password
+  })
+  console.log("new user: ", data);
+  return data;
+  
+}
+
+export const createEvent = async (obj) => {
+  let res = await api.post('events/', {
+      author: obj.auth,
+      eventTitle: obj.title,
+      eventDate: obj.date,
+      eventTime: obj.time,
+      maxAttendees: obj.maxAttendees,
+      description: obj.description,
+      attendees: [],
+      location: obj.loc,
+    })
+    console.log(res)
+    }
+
 export const updateUser = async(obj) => {
   console.log(obj);
   let x = {
@@ -57,19 +90,7 @@ export const addAttendee = async (eid, uid) => {
   return res;
 }
 
-export const createEvent = async (obj) => {
-    let res = await api.post('events/', {
-          author: obj.auth,
-          eventTitle: obj.title,
-          eventDate: obj.date,
-          eventTime: obj.time,
-          maxAttendees: obj.maxAttendees,
-          description: obj.description,
-          attendees: [],
-          location: obj.loc,
-        })
-        console.log(res)
-      }
+
       
 export const deleteEvent = async(id) => {
         let res = await api.delete(`/events/${id}/`);
