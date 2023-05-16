@@ -60,7 +60,12 @@ export default function Register() {
           
       const handleDescChange = (event) => {
           setDesc(event.target.value);
+        };
+
+        const handleProChange = (event) => {
+          setPro(event.target.value);
         }
+
 
         const handleClick = () => {
             if (myemail.match(/@umass.edu$/) == null) {
@@ -71,7 +76,7 @@ export default function Register() {
                 username : myusername,
                 fname : myfname,
                 lname: mylname,
-                pronouns: "she/her",
+                pronouns: pro,
                 age: parseInt(myage),
                 major: mymajor,
                 residential_cluster: myresident,
@@ -119,7 +124,7 @@ export default function Register() {
                             <div className="right">
                                 <span className="rinputBox">
                                     {/* <label for="pronouns">Pronouns: </label> */}
-                                    <select name="pronouns" className="rloginInput"id="pronouns">
+                                    {/* <select name="pronouns" className="rloginInput"id="pronouns">
                                         <option value="" disabled selected>Pronouns</option>
                                         <option value="she-her">She/Her</option>
                                         <option value="he-him">He/Him</option>
@@ -127,9 +132,10 @@ export default function Register() {
                                         <option value="she-they">She/They</option>
                                         <option value="he-they">He/They</option>
                                         <option value="any">Any</option>
-                                        <option value="other">Other (specify in bio)</option>
+                                        <option value="other">Other (specify in bio)</option> */}
                                         {/* onChange = {handlePronounsChange} */}
-                                    </select>
+                                    {/* </select> */}
+                                    <input placeholder="Pronouns" className="rloginInput" onChange={handleProChange}/>
                                 </span>
                                
                                 <span className="rinputBox"><input type="number" placeholder="Age" className="rloginInput" value = {myage} onChange={handleAge}/></span>

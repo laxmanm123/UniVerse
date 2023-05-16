@@ -90,8 +90,12 @@ export const addAttendee = async (eid, uid) => {
   return res;
 }
 
+export const removeAttendee = async (eid, uid) => {
+  let res = await api.put(`events/removeAttendee/${eid}/${uid}/`);
+  return res;
+}
 
-      
+
 export const deleteEvent = async(id) => {
         let res = await api.delete(`/events/${id}/`);
         return res;

@@ -55,8 +55,8 @@ console.log(item)
     return (
         <div>
   <Profile id={item.id} 
-  firstName={item.fname}
-  lastName = {item.lname}
+  fname={item.fname}
+  lname = {item.lname}
   pronouns={item.pronouns} 
   age={item.age} 
   residenial_cluster={item.residential_cluster}

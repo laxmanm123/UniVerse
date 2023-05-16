@@ -2,8 +2,10 @@ import "./attending.css"
 import { useState, useEffect } from "react";
 
 import { getEvents, getUser, getSingleUser } from "../../api";
-import Post from "../../components/post/Post";
-
+import Post3 from "../../components/post/Post3";
+import Topbar from "../../components/topbar/Topbar";
+import Sidebar from "../../components/sidebar/Sidebar";
+import Feed from "../../components/feed/Feed";
 
 export default function Attending(props) {
 
@@ -44,12 +46,11 @@ export default function Attending(props) {
 
   const components = events.filter(item => contains(item.attendees, window.localStorage.getItem("username"))
   ).map((item) => (
-    <Post myKey={item.id} 
+    <Post3 myKey={item.id} 
     name={
       user.filter(x => x.id === parseInt(item.author.slice(-2).charAt(0)))[0].username
     }
     author = {item.author.slice(-2).charAt(0)}
-    check = {parseInt(window.localStorage.getItem("userID"))}
     description={item.description} 
     title={item.eventTitle} 
     date={item.eventDate}
@@ -59,25 +60,17 @@ export default function Attending(props) {
     max={item.maxAttendees} 
     />
   ));
-
-
   
 
-
-
   return (
-    <div className="eventAll">
-      <div className="eventWrapper">
-        <div className="feedWrapper">
-          {components}
-          {/* <Post />
-                    <Post1 />
-                    <Post2 />
-                    <Post3 />
-                    <Post4 /> */}
-
-        </div>
-      </div>
+    <>
+    <Topbar />
+    {/* <Sidebar /> */}
+    <div className="aContainer">
+      {/* <Sidebar /> */}
+        {components}
+      
     </div>
+  </>
   )
 }

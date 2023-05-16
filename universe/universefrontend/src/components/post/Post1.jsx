@@ -6,27 +6,29 @@ import { useHistory } from "react-router-dom";
 import { addAttendee } from "../../api";
 
 
+
+
 import {deleteEvent} from '../../api'
 
-export default function Post1(props) {
+export default function Post(props) {
   // onload = (event) => {createButton()};
   
   const history = useHistory();
 
   const x = props.myKey // x is the POST'S id
-  const y = props.check // y is the current user's id
-  const z = props.author // this is the creator of the post
-  const a = props.attending
-  const b = props.max
+  const y = parseInt(window.localStorage.getItem("userID"));
+  // y is the current user's id
+  const z = parseInt(props.author); // this is the creator of the post
+  const a = props.attending;
+  const b = props.max;
 
-  const peep = props.interest
 
 
   const handleDeleteClick = async () => {
     // alert('Deleted post.')
     console.log('here');
     history.push('/profile');
-    if (y == 3) {
+    if (y == z) {
     const response = await deleteEvent(x);
     window.location.reload();
     } else {
@@ -34,6 +36,8 @@ export default function Post1(props) {
     }
 
   };
+  const peep = props.interest
+
 
   const handleSignUp = async () => {
     if (y == z) {
@@ -48,16 +52,6 @@ export default function Post1(props) {
     }
   };
 
-  const attendeesWrapper = document.getElementById("attendees");
-  // attendeesWrapper.innerHTML = ``;
-  // peep.forEach(x => {
-  //     const el = document.createElement("p");
-  //     const text = document.createTextNode(`${x}`);
-  //     el.appendChild(text);
-  //     attendeesWrapper.appendChild(el);
-  // });
-
-
   return (
 
     
@@ -66,7 +60,7 @@ export default function Post1(props) {
         <div className="postTop">
           <div className="postTopLeft">
             <img className="postProfileImg" src="assets/profilepic4.jpg" alt="" />
-            <span className="postUsername">{props.name}            </span>
+            <span className="postUsername">{props.name}</span>
             <span className="postTitle">{props.title}</span>
             <span className="postDate">Event Happening On: {props.date}</span>
 
@@ -96,10 +90,15 @@ export default function Post1(props) {
             {/* <Link to={{ pathname: "https://amherstcinema.org/" }} target="_blank">Amherst Movie Theater</Link> */}
           </div>
           <div>
+          {/* <button onClick={handleSignUp} className="postButton">Sign Me Up!</button> */}
+          {/* <div id = "deleteButtonHolder"></div> */}
           <button onClick={handleDeleteClick} className="postButton">Delete</button>
-          </div>
+          {/* <Stack direction="row" spacing={2}>
+          <Button variant="contained">Sign Me Up!</Button>
+          </Stack> */}
+                    </div>
           <div className = "attendees" id="att">
-          <p className="attendees">{peep[0]}</p>
+          <p className="attendees">{peep[0]} </p>
           <p id="attendees">{peep[1]}</p>
           <p id="attendees">{peep[2]}</p>
           <p id="attendees">{peep[3]}</p>
@@ -110,6 +109,7 @@ export default function Post1(props) {
           <p id="attendees">{peep[8]}</p>
           <p id="attendees">{peep[9]}</p>
           </div>
+
           </div>
         </div>
       </div>

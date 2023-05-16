@@ -15,9 +15,10 @@ export default function EditProfile(props) {
 
 
     const open = Boolean(anchorEl);
-      const history = useHistory();      
+      const history = useHistory();
+      const myID = parseInt(window.localStorage.getItem("userID"))      
         const handleClick = () => {
-          const newData = {num: 1, 
+          const newData = {num: myID, 
             fn: String(fname), ln: String(lname), un: "temp", pn: String(pro), ag: parseInt(age), mj: String(major), rc: 'year', b: String(desc)
            };
            console.log(newData)
@@ -102,7 +103,7 @@ export default function EditProfile(props) {
             onChange={handleMajorChange}
 
           />
-            Enter year of graduation:
+            Enter residential cluster:
         <input
             placeholder="Year"
             className="enameInput"

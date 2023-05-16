@@ -10,7 +10,7 @@ export default function Messenger() {
 
   return (
     <>
-      <Topbar />
+      {/* <Topbar />
       <div className="messenger">
         <div className="chatMenu">
           <div className="chatMenuWrapper">
@@ -42,7 +42,8 @@ export default function Messenger() {
           </div>
           <Rightbar />
         </div>
-      </div>
+      </div> */}
+      Thank you Alex!
     </>
   );
 }

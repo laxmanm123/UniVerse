@@ -77,10 +77,12 @@ export default function CreatePost(props) {
       // const [data, setData] = useState([]);
 
       const history = useHistory();
+
+      const myID = parseInt(window.localStorage.getItem("userID"));
       
         const handleClick = () => {
           const newData = {
-            auth: "http://127.0.0.1:8000/users/1/", 
+            auth: `http://127.0.0.1:8000/users/${myID}/`, 
             date: String(selectedDate), 
             time: String(eventTime), 
             title: eventName, 

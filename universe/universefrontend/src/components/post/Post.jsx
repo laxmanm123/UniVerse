@@ -16,10 +16,11 @@ export default function Post(props) {
   const history = useHistory();
 
   const x = props.myKey // x is the POST'S id
-  const y = props.check // y is the current user's id
-  const z = props.author // this is the creator of the post
-  const a = props.attending
-  const b = props.max
+  const y = parseInt(window.localStorage.getItem("userID"));
+  // y is the current user's id
+  const z = parseInt(props.author); // this is the creator of the post
+  const a = props.attending;
+  const b = props.max;
 
   // function createfn(){
   //   //debugger;
@@ -53,7 +54,7 @@ export default function Post(props) {
     // alert('Deleted post.')
     console.log('here');
     history.push('/');
-    if (y == 3) {
+    if (y == z) {
     const response = await deleteEvent(x);
     window.location.reload();
     } else {
@@ -83,7 +84,7 @@ export default function Post(props) {
         <div className="postTop">
           <div className="postTopLeft">
             <img className="postProfileImg" src="assets/profilepic4.jpg" alt="" />
-            <span className="postUsername">{props.name}            </span>
+            <span className="postUsername">{props.name}</span>
             <span className="postTitle">{props.title}</span>
             <span className="postDate">Event Happening On: {props.date}</span>
 
@@ -115,7 +116,7 @@ export default function Post(props) {
           <div>
           <button onClick={handleSignUp} className="postButton">Sign Me Up!</button>
           {/* <div id = "deleteButtonHolder"></div> */}
-          <button onClick={handleDeleteClick} className="postButton">Delete</button>
+          {/* <button onClick={handleDeleteClick} className="postButton">Delete</button> */}
           {/* <Stack direction="row" spacing={2}>
           <Button variant="contained">Sign Me Up!</Button>
           </Stack> */}

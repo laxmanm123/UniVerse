@@ -41,7 +41,7 @@ export default function Topbar() {
                 <div className="topbarIcons">
                     <div className="topbarIconItem" >
                     <span class="material-icons md-36">face</span>
-                    <span className="register"><Link style={{color: '#f9ebdc'}} to="/register">Register</Link></span>
+                    <span className="register"><Link style={{color: '#f9ebdc'}} to="/login">Log Out</Link></span>
                    
                     {/* <span className="topbarIconBadge" > 1</span> */}
                 </div>

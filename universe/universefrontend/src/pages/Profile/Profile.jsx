@@ -51,13 +51,12 @@ export default function Profile(props) {
   }, []);
 
   
+  const myID = parseInt(window.localStorage.getItem("userID"));
 
-  let components = events.filter(event => event.author === "http://127.0.0.1:8000/users/1/").map((item) => (
-    <Post1 key={item.id} 
-    name={
-      'laxmanmohanarajan'
-    }
-    check = {parseInt(window.localStorage.getItem("userID"))}
+  let components = events.filter(event => event.author === `http://127.0.0.1:8000/users/${myID}/`).map((item) => (
+    <Post1 myKey={item.id} 
+    name={item.username}
+    author = {item.author.slice(-2).charAt(0)}
     description={item.description} 
     title={item.eventTitle} 
     date={item.eventDate}
@@ -65,7 +64,8 @@ export default function Profile(props) {
     location={item.location} 
     attending={item.attendees.length} 
     max={item.maxAttendees}
-    interest = {item.attendees} />
+    interest = {item.attendees} 
+/>
   ));
 
     return (
@@ -80,16 +80,12 @@ export default function Profile(props) {
                         <img className="profileUserImage" src="assets/profilepic4.jpg" alt="" />
                     </div>
                     <div className="profileInfo">
-                        <h4 className="profileInfoName">{props.fname} {props.lname}</h4>
-                        <span className="profileInfoDesc">{props.age}</span>
-                        <span className="profileInfoDesc">{props.major}</span>
-                        <span className="profileInfoDesc">{props.residential_cluster}</span>
-                        <span className="profileInfoDesc">{props.pronouns}</span>
-                        {/* This is where we can add more info like res cluster, pronouns, major, age, etc */}
-                <span className="profileRightBottom">
-                    {props.bio} 
-                    
-                    </span>
+                        <span className="profileInfoName">{props.fname} {props.lname}</span>
+                        <span className="profileInfoDesc">Age: {props.age}</span>
+                        <span className="profileInfoDesc">Major: {props.major}</span>
+                        <span className="profileInfoDesc">Residential Cluster: {props.residential_cluster}</span>
+                        <span className="profileInfoDesc">Pronouns: {props.pronouns}</span>
+                        <span className="profileInfoDesc">Bio: {props.bio} </span>
                     <div className="sidebarListItemText">
                         <button onClick={()=> history.push('/editprofile')} className="Home-button">Edit Profile</button>
                     </div>

@@ -37,12 +37,11 @@ export default function Sidebar() {
                       {/* <span className="sidebarListItemText">Groups</span> */}
                       {/* <Button variant="outlined">Groups</Button> */}
                 </li>
-                <li className="sidebarListItem">
+                {/* <li className="sidebarListItem">
                     <span class="material-icons">event</span>
                     <button onClick={()=> history.push('/messenger')} className="Home-button">Event List</button>
                     {/* <Button variant="outlined">Event List</Button> */}
                       {/* <span className="sidebarListItemText">Events</span> */}
-                </li>
                 <li className="sidebarListItem">
                     <span class="material-icons">edit_square</span>
                 <button onClick={()=> history.push('/createpost')} className="Home-button">Create Post</button>

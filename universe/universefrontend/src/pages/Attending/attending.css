@@ -111,3 +111,10 @@
       cursor: pointer;
       color: white;
   }
+
+  .aContainer {
+    /* display: flex; */
+    height: 250px;
+    justify-content: center;
+    flex:1;
+  }

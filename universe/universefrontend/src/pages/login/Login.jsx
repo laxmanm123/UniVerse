@@ -80,13 +80,36 @@ export default function Login() {
 
 
   const testt = () => {
-    if (username == "ashnajain" && password == "helloSunshine") {
+    if (username == "ajain" && password == "helloSunshine") {
       whoami = 3;
-      const myname = "ashnajain"
+      const myname = "ajain"
     window.localStorage.setItem("userID", whoami);
     window.localStorage.setItem("username", myname);
     history.push('/');
     console.log(whoami);
+    } else if (username == "mvadassery" && password == "v"){
+      whoami = 2;
+      const myname = "mvadassery"
+    window.localStorage.setItem("userID", whoami);
+    window.localStorage.setItem("username", myname);
+    history.push('/');
+    console.log(whoami);
+    } else if (username == "lmohanarajan" && password == "please"){
+      whoami = 1;
+      const myname = "lmohanarajan"
+    window.localStorage.setItem("userID", whoami);
+    window.localStorage.setItem("username", myname);
+    history.push('/');
+    console.log(whoami);
+    } else if (username == "sbenanat" && password == "hi"){
+      whoami = 4;
+      const myname = "sbenanat"
+    window.localStorage.setItem("userID", whoami);
+    window.localStorage.setItem("username", myname);
+    history.push('/');
+    console.log(whoami);
+    } else {
+      alert("Invalid login. Please try again.")
     }
   };
 
@@ -106,7 +129,7 @@ export default function Login() {
             <input type = "password" placeholder="Password" className="loginInput" onChange={handlePassword}/>
             <button onClick={testt} className="loginButton">Log In</button>
             <span className="loginForgot">Forgot Password?</span>
-            <button className="loginRegisterButton">
+            <button onClick={()=> history.push('/register')} className="loginRegisterButton">
               Create a New Account
             </button>
             <GoogleLogin
