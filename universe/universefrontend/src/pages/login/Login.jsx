@@ -60,7 +60,7 @@ export default function Login() {
   const history = useHistory();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
+  
   const handleGoogleLoginSuccess = (credentialResponse) => {
     console.log(credentialResponse);
     history.push("/profile"); // Redirect to "/profile" page
@@ -80,34 +80,40 @@ export default function Login() {
 
 
   const testt = () => {
-    if (username == "ajain" && password == "helloSunshine") {
+    if (username === "ajain" && password === "pass") {
       whoami = 3;
       const myname = "ajain"
     window.localStorage.setItem("userID", whoami);
     window.localStorage.setItem("username", myname);
     history.push('/');
-    console.log(whoami);
-    } else if (username == "mvadassery" && password == "v"){
+    window.location.reload();
+    // console.log(whoami);
+    } else if (username === "mvadassery" && password === "pass"){
       whoami = 2;
       const myname = "mvadassery"
     window.localStorage.setItem("userID", whoami);
     window.localStorage.setItem("username", myname);
     history.push('/');
-    console.log(whoami);
-    } else if (username == "lmohanarajan" && password == "please"){
+    window.location.reload();
+    // console.log(whoami);
+    } else if (username === "lmohanarajan" && password === "pass"){
       whoami = 1;
       const myname = "lmohanarajan"
     window.localStorage.setItem("userID", whoami);
     window.localStorage.setItem("username", myname);
     history.push('/');
-    console.log(whoami);
-    } else if (username == "sbenanat" && password == "hi"){
+    // console.log(whoami);
+    window.location.reload();
+
+    } else if (username === "sbenanat" && password === "pass"){
       whoami = 4;
       const myname = "sbenanat"
     window.localStorage.setItem("userID", whoami);
     window.localStorage.setItem("username", myname);
     history.push('/');
-    console.log(whoami);
+    // console.log(whoami);
+    window.location.reload();
+
     } else {
       alert("Invalid login. Please try again.")
     }
@@ -145,5 +151,3 @@ export default function Login() {
     </div>
   );
 }
-
-export {whoami};

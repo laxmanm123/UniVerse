@@ -90,6 +90,14 @@ def add_attendee(request, eid, uid):
         event.attendees.add(uid)
         return Response(status=status.HTTP_202_ACCEPTED)
     
+@api_view((['PUT']))
+def remove_attendee(request, eid, uid):
+    if request.method == 'PUT':
+        event = Event.objects.get(pk=eid)
+        print(event.id)
+        event.attendees.remove(uid)
+        return Response(status=status.HTTP_202_ACCEPTED)
+    
 
 @api_view(['DELETE'])
 def delete_event(request, id):
